@@ -1,0 +1,288 @@
+﻿@page
+@using ClinicalApp.Models
+@using ClinicalApp.Utility
+@model RegisterModel
+@{
+    ViewData["Title"] = "Create a new account.";
+}
+
+<style>
+    .register{
+        background-image: url("https://media.istockphoto.com/photos/modern-hospital-building-picture-id1312706504?b=1&k=20&m=1312706504&s=170667a&w=0&h=IcYI9Pm-s-JyeCOgul1DfSQAqY3hVte4uXnStOXbkaw=");
+        background-size: cover;
+        height: 90vh;
+        width: 100%
+    }
+
+    .divider{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .form-floating{
+        border: 2px double blue;
+        margin: 10px 5px;
+        border-radius: 10px;
+    }
+
+    h1{
+        font-family:'Times New Roman', Times, serif;
+        text-align: center;
+        text-shadow: 10px 15px 20px maroon;
+        color: #fff;
+    }
+
+    .button{
+        border-radius: 15px;
+        box-shadow: 12px 16px 22px maroon;
+    }
+
+    .button:hover{
+        box-shadow: -12px -16px -22px blue;
+    }
+
+    .radio{
+        color: #fff;
+    }
+</style>
+
+
+<div class="register">
+    <h1>@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
+            <input asp-for="Input.Id" hidden />
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="divider">
+                <div class="form-floating">
+                <select asp-for="Input.Title" class="form-control" aria-required="true" class="form-select">
+                    <option disabled>Select your title</option>
+                    <option>Mr</option>
+                    <option>Mrs</option>
+                    <option>Miss</option>
+                    <option>Doc</option>
+                    <option>Prof</option>
+                </select>
+                <label asp-for="Input.Title"></label>
+                <span asp-validation-for="Input.Title" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.FirstName" class="form-control" aria-required="true" />
+                <label asp-for="Input.FirstName"></label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.LastName" class="form-control" aria-required="true" />
+                <label asp-for="Input.LastName"></label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.PhoneNumber" class="form-control" aria-required="true" />
+                <label asp-for="Input.PhoneNumber"></label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <select asp-for="Input.Position" asp-items="Html.GetEnumSelectList<Position>()" class="form-control" aria-required="true"></select>
+                <label asp-for="Input.Position"></label>
+                <span asp-validation-for="Input.Position" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <select asp-for="Input.Department" class="form-control" asp-items="Html.GetEnumSelectList<Department>()"  aria-required="true"></select>
+                <label asp-for="Input.Department"></label>
+                <span asp-validation-for="Input.Department" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <select asp-for="Input.ContractType" asp-items="Html.GetEnumSelectList<ContractType>()" class="form-control"aria-required="true"></select>
+                <label asp-for="Input.ContractType"></label>
+                <span asp-validation-for="Input.ContractType" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.DateStarted" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.DateStarted"></label>
+                <span asp-validation-for="Input.DateStarted" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Email"></label>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.StreetName" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.StreetName"></label>
+                <span asp-validation-for="Input.StreetName" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Surbub" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Surbub"></label>
+                <span asp-validation-for="Input.Surbub" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.City_Town" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.City_Town"></label>
+                <span asp-validation-for="Input.City_Town" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.Country"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.ZipCode" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.ZipCode"></label>
+                <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-floating radio">
+                <input type="radio" name="rdUserRole" value="@Workers.AdminRole" />@Workers.AdminRole
+                <input type="radio" name="rdUserRole" value="@Workers.DoctorRole" />@Workers.DoctorRole
+                <input type="radio" name="rdUserRole" value="@Workers.FinanceRole" />@Workers.FinanceRole
+                <input type="radio" name="rdUserRole" value="@Workers.HRRole" />@Workers.HRRole
+                <input type="radio" name="rdUserRole" value="@Workers.ITRole" />@Workers.ITRole
+                <input type="radio" name="rdUserRole" value="@Workers.ManagerRole" />@Workers.ManagerRole
+                <input type="radio" name="rdUserRole" value="@Workers.NurseRole" /> @Workers.NurseRole
+                <input type="radio" name="rdUserRole" value="@Workers.ParamedicRole" /> @Workers.ParamedicRole
+                <input type="radio" name="rdUserRole" value="@Workers.PorterRole" /> @Workers.PorterRole
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.Image" type="file" name="files" id="uploadFile" aria-required="true" />
+                <span asp-validation-for="Input.Image" class="text-danger form-control"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.Password"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                <label asp-for="Input.ConfirmPassword"></label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            @*<button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary button">Register</button>*@
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 10px 15px;">
+          Register
+        </button>
+            </div>
+        </form>
+
+        <div class="progress collapse">
+            <div  onclick="load()" class="progress-bar progress-bar-striped progress-bar-animated bg-info text-white" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"; height:100%;">
+                <span style="font-size: 2rem;">Saving Data</span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible collapse text-center" style="font-size:2rem;" role="alert">
+                Registration was successfull
+            </div>
+        </div>
+    </div>
+    <section>
+            <h3 class="text-warning">Use another service to register.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+        
+</div>
+</div>
+
+
+<div>
+<div>
+        <div class="container">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin-top: 10%">
+    <div class="modal-content" style="background-color: #D8E1E4;">
+      <div class="modal-body" style="padding: 5%">
+          <button class="btn btn-primary" type="button" id="but" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      <span class="sr-only">Loading...</span>
+      Loading
+    </button>
+
+     <div class="progress collapse" id="loading">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info text-white" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%; height: 100%;">
+                    <span style="font-size: 2rem;">Loading...</span>
+                </div>
+           </div>
+
+     <div id="Fade_area" class="overlay"></div>
+                <div id="myModal" class="popup">
+              <partial name="_Popup" />
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+@section Scripts {
+
+     <script>
+        function myFunction(){
+            var x = document.getElementById("myInput");
+            var y = document.getElementById("hide");
+            var z = document.getElementById("hidden");
+
+            if(x.type === 'password') {
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none"
+            }
+            else{
+                 x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block"
+            }
+
+        }
+    </script>
+
+    <script>
+            var b = document.getElementById('load');
+           var a = document.getElementById('log');
+           var c = document.getElementById('but');
+      function load() {
+                 b.style.display = "block";
+               a.style.display = "none";
+                c.style.display = "block";
+               setTimeout(function() {
+                  
+           }, 4000);
+       }
+    </script>
+
+
+    <partial name="_ValidationScriptsPartial" />
+}
+</div>

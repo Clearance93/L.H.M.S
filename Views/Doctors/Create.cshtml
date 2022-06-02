@@ -1,0 +1,402 @@
+﻿@model ClinicalApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+     .header{
+        min-width: 100vh;
+        width: 100%;
+        background-image: linear-gradient(rgba(13, 202, 240, 0.5), rgba(13, 202, 240, 0.5)), url("https://lh3.googleusercontent.com/zePlXeoAsBaYNVqJydW7pPLusn9eyUwqSy68m7X-_MS-URbmKKKbNZTPdOPXRV4gvfZfVHasLYRSlEB2bXwGbbX_V0bjO5oqjg=s750");
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        margin-top: -1.3%;
+        height: 100vh;
+    }
+   
+    .home{
+        padding: 20%;
+    }
+
+    .home h1{
+        margin-left: 3%;
+        font-weight: 700;
+        font-size: 3.8em;
+        font-family:'Times New Roman', Times, serif;
+    }
+
+    .mb{
+        font-weight: 500;
+        font-size: 1.1em;
+        color: orangered;
+        margin-left: 20px;
+    }
+
+    button{
+        margin-left: 20px;
+    }
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+}
+</style>
+
+
+ <div class="grids">
+     <div>
+         <div class="flex-shrink-0 p-3 bg-info" style="width: 280px; height: 100%;">
+    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
+      <br /> 
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-danger">
+          Home
+        </a>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Dashboard
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-dark rounded">Employees</a></li>
+            <li><a asp-controller="Patient" asp-action="Index" class="link-dark rounded">Patients</a></li>
+            <li><a  class="link-dark rounded">Patient on merdication in hospital</a></li>
+            <li><a  class="link-dark rounded">Patient on merdication of hospital</a></li>
+          </ul>
+        </div>
+      </li>
+       <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#bookings-collapse" aria-expanded="false">
+          Bookings
+        </button>
+        <div class="collapse" id="bookings-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Medication</a></li>
+            <li><a  class="link-dark rounded">To See a Doctor</a></li>
+            <li><a  class="link-dark rounded">To See a Speciality</a></li>
+            <li><a  class="link-dark rounded">To See a patient</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#ward-collapse" aria-expanded="false">
+          Our Wards
+        </button>
+        <div class="collapse" id="ward-collapse">
+           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Children</a></li>
+            <li><a  class="link-dark rounded">Metinity</a></li>
+            <li><a  class="link-dark rounded">Men</a></li>
+            <li><a  class="link-dark rounded">Woman</a></li>
+            <li><a  class="link-dark rounded">psyc</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#role-collapse" aria-expanded="false">
+          Our Roles
+        </button>
+        <div class="collapse" id="role-collapse">
+           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="Paramedic" asp-action="Index" class="link-dark rounded">Paramedics</a></li>
+            <li><a asp-controller="Admin" asp-action="Index"  class="link-dark rounded">Doctors</a></li>
+            <li><a asp-controller="Doctors" asp-action="Index" class="link-dark rounded">Administration</a></li>
+            <li><a asp-controller="IT" asp-action="Index" class="link-dark rounded">IT</a></li>
+            <li><a asp-controller="HR" asp-action="Index" class="link-dark rounded">HR</a></li>
+             <li><a asp-controller="Clearner" asp-action="" class="link-dark rounded">Cleaner</a></li>
+            <li><a asp-controller="Nurse" asp-action="Index" class="link-dark rounded">Nurses</a></li>
+            <li><a asp-controller="Doctors" asp-action="Create" class="link-dark rounded">Add a Doctor</a></li>
+            <li><a asp-controller="Finance" asp-action="Index" class="link-dark rounded">Finance</a></li>
+            <li><a asp-controller="Manager" asp-action="Index" class="link-dark rounded">Management</a></li>
+            <li><a asp-controller="Porter" asp-action="Index" class="link-dark rounded">Porter</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Profile</a></li>
+            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><partial name="_LoginPartial" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+     </div>
+     <section class="header">
+    <div class="home">
+          <h1 class="text-danger">L.H.M.S <small>Doctor</small></h1>
+            <p class="col-md-7 mb text-light">New Doctors need to be added from this page.</p>
+             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 10px 15px;">
+          New Doctor
+        </button>
+    </div>
+</section>
+
+<div>
+        <div class="container">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-image: url('https://post.healthline.com/wp-content/uploads/2020/08/Doctors_For_Men-732x549-thumbnail-1-732x549.jpg'); background-size: cover;">
+  <div class="modal-dialog" style="margin-top: 10%">
+    <div class="modal-content" style="background-color: #D8E1E4;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Doctor form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+ 
+      <div class="modal-body" style="padding: 5%">
+          <div class="row text-light" style="background-color: maroon;">
+    <div class="col-md-12">
+         <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoctorFirstName" class="control-label"></label>
+                <input asp-for="DoctorFirstName" class="form-control" />
+                <span asp-validation-for="DoctorFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorLastName" class="control-label"></label>
+                <input asp-for="DoctorLastName" class="form-control" />
+                <span asp-validation-for="DoctorLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorEmail" class="control-label"></label>
+                <input asp-for="DoctorEmail" class="form-control" />
+                <span asp-validation-for="DoctorEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorAddress" class="control-label"></label>
+                <textarea asp-for="DoctorAddress" class="form-control"></textarea>
+                <span asp-validation-for="DoctorAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorPhoneNumber" class="control-label"></label>
+                <input asp-for="DoctorPhoneNumber" class="form-control" />
+                <span asp-validation-for="DoctorPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorDepartmetment" class="control-label"></label>
+                <select asp-for="DoctorDepartmetment" class="form-control form-select">
+                    <option>Select Department</option>
+                    <option>OPD</option>
+                    <option>Medical</option>
+                    <option>Nursing</option>
+                    <option>Paramedics</option>
+                    <option>Patholodgy</option>
+                    <option>Physical</option>
+                    <option>Pyscology</option>
+                    <option>Rehabilitation</option>
+                    <option>Theater</option>
+                    <option>Phamacy</option>
+                    <option>Radiology</option>
+                    <option>Technical</option>
+                    <option>Management</option>
+                    <option>IT</option>
+                    <option>HR</option>
+                    <option>Finance</option>
+                    <option>Clinical</option>
+                    <option>Admin</option>
+                </select>
+                <span asp-validation-for="DoctorDepartmetment" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" type="file" name="files" id="upLoadBox" class="form-control" />
+            </div>
+            <div class="form-group">
+                @*<input type="submit" value="Create" class="btn btn-primary" />*@
+                 <button id="registerSubmit" type="submit" class="btn btn-lg btn-primary button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 10px 15px;">
+          Add
+        </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+@section Scripts {
+
+    @*<script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>*@
+
+  <div>
+<div>
+        <div class="container">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin-top: 10%">
+    <div class="modal-content" style="background-color: #D8E1E4;">
+      <div class="modal-body" style="padding: 5%">
+          <button class="btn btn-primary" type="button" id="but" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      <span class="sr-only">Loading...</span>
+      Loading
+    </button>
+
+     <div class="progress collapse" id="loading">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info text-white" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%; height: 100%;">
+                    <span style="font-size: 2rem;">Loading...</span>
+                </div>
+           </div>
+
+     <div id="Fade_area" class="overlay"></div>
+                <div id="myModal" class="popup">
+              <partial name="_Popup" />
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+     <script>
+        function myFunction(){
+            var x = document.getElementById("myInput");
+            var y = document.getElementById("hide");
+            var z = document.getElementById("hidden");
+
+            if(x.type === 'password') {
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none"
+            }
+            else{
+                 x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block"
+            }
+
+        }
+    </script>
+
+    <script>
+            var b = document.getElementById('load');
+           var a = document.getElementById('log');
+           var c = document.getElementById('but');
+      function load() {
+                 b.style.display = "block";
+               a.style.display = "none";
+                c.style.display = "block";
+               setTimeout(function() {
+                  
+           }, 4000);
+       }
+    </script>
+
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,369 @@
+﻿@model ClinicalApp.Models.UserRole
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    h1 {
+        font-family:'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-size: 2.4em;
+        color: maroon;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    h5{
+          font-family:'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-size: 1.5em;
+        color: maroon;
+    }
+
+    .details{
+        flex-basis: 42%;
+        border-radius: 15px;
+        margin-bottom: 42px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .layer{
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.8s;
+    }
+
+    .layer:hover{
+        background: rgba(336,20,0,0.5)
+    }
+
+    h2{
+        color: #fff;
+    }
+
+    .layer h2{
+         width: 100%;
+        font-weight: 500;
+        color: #fff;
+        font-size: 26px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .layer:hover h2{
+        opacity: 1;
+        bottom: 50%;
+        text-align: center;
+    }
+    .grids{
+        display: flex;
+    }
+
+    .header{
+        text-align: center;
+        margin-top: -30%;
+    }
+
+    .header h1{
+        margin-left: 25%;
+    }
+
+    .dict{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    b{
+        font-size: 1.5rem;
+        text-shadow: 10px 15px 10px maroon;
+        box-shadow: 10px 15px 10px orangered;
+        margin-left: 125px;
+    }
+
+    .u{
+        box-shadow: 7px 5px 8px lightblue;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-left: 25px;
+    }
+
+    .us{
+        margin-left: 10%;
+    }
+
+    input{
+        margin-left: 35px;
+        margin-top: 15px;
+    }
+
+    span{
+        border: 2px dotted orangered;
+        border-radius: 12px;
+        padding: 3px;
+    }
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+}
+</style>
+
+
+ <div class="grids">
+     <div>
+         <div class="flex-shrink-0 p-3 bg-info" style="width: 280px; height: 100%;">
+    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
+      <br /> 
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-danger">
+          Home
+        </a>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Dashboard
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-dark rounded">Employees</a></li>
+            <li><a  class="link-dark rounded">Patients</a></li>
+            <li><a  class="link-dark rounded">Patient on merdication in hospital</a></li>
+            <li><a  class="link-dark rounded">Patient on merdication of hospital</a></li>
+          </ul>
+        </div>
+      </li>
+       <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#bookings-collapse" aria-expanded="false">
+          Bookings
+        </button>
+        <div class="collapse" id="bookings-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Medication</a></li>
+            <li><a  class="link-dark rounded">To See a Doctor</a></li>
+            <li><a  class="link-dark rounded">To See a Speciality</a></li>
+            <li><a  class="link-dark rounded">To See a patient</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#ward-collapse" aria-expanded="false">
+          Our Wards
+        </button>
+        <div class="collapse" id="ward-collapse">
+           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Children</a></li>
+            <li><a  class="link-dark rounded">Metinity</a></li>
+            <li><a  class="link-dark rounded">Men</a></li>
+            <li><a  class="link-dark rounded">Woman</a></li>
+            <li><a  class="link-dark rounded">psyc</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#role-collapse" aria-expanded="false">
+          Our Roles
+        </button>
+        <div class="collapse" id="role-collapse">
+           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Paramedics</a></li>
+            <li><a  class="link-dark rounded">Doctors</a></li>
+            <li><a  class="link-dark rounded">Administration</a></li>
+            <li><a  class="link-dark rounded">IT</a></li>
+            <li><a  class="link-dark rounded">HR</a></li>
+             <li><a  class="link-dark rounded">Clearner</a></li>
+            <li><a  class="link-dark rounded">Nurses</a></li>
+            <li><a  class="link-dark rounded">Finance</a></li>
+            <li><a  class="link-dark rounded">Management</a></li>
+            <li><a  class="link-dark rounded">Porter</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Profile</a></li>
+            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><partial name="_LoginPartial" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+     </div>
+
+<div class="container-md">
+     <h1><u>DETAILS OF: <span>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span></u></h1>
+     <hr style="border: 2px dotted red;"/>
+    <header>
+		<hr id="thread1">
+		<hr id="thread2">
+		<hr id="thread3" class="right">
+		<hr id="thread4">
+		<hr id="thread5" class="right">
+		<hr id="thread6">
+</header>
+   <div class="row">
+       <div class="col-md-4">
+            <div class="details">
+        <div class="grids">
+            <div>
+                <img src="@Html.DisplayFor(model => model.Image)" style="width: 460px; height: 400px;" />
+        <div class="layer">
+            <h2>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
+        </div>
+        </div>
+         </div>
+       </div>
+       </div>
+     <div class="header">
+        <u>
+            <h1>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h1></u>
+                        <h5>Identification</h5>
+             <b class="text-danger">@Html.DisplayNameFor(model => model.UserId)</b>
+             <u class="u us">@Html.DisplayFor(model => model.UserId)</u> <br />
+             <b class="text-danger">@Html.DisplayNameFor(model => model.RoleId)</b>
+             <u class="u us">@Html.DisplayFor(model => model.RoleId)</u><br>
+             <b class="text-danger">@Html.DisplayNameFor(model => model.ConcurrencyStamp)</b>
+             <u class="u">@Html.DisplayFor(model => model.ConcurrencyStamp)</u>
+      </div>
+   </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h5><u><i>Personal Information</i></u></h5>
+            <strong>Title: </strong>
+            <input type="text" style="margin-left: 13%;" disabled value="@Html.DisplayFor(model => model.Title)" /> <br /> 
+            <strong>Last Name:</strong>
+            <input type="text" disabled value="@Html.DisplayFor(model => model.FirstName)" /> <br />
+            <strong>First Name: </strong>
+            <input type="text" disabled value="@Html.DisplayFor(model => model.LastName)" /> <br />  <br />
+               <div class="form-group">
+                <h5 style="margin-left: 15%;"><u><i>Roles</i></u></h5>
+                 <strong>Position: </strong>
+                <input style="margin-left: 11.5%;" type="text" disabled value="@Html.DisplayFor(model => model.Position)" /> <br /> 
+                <strong>Department: </strong>
+                <input type="text" style="margin-left: 6.4%;" disabled value="@Html.DisplayFor(model => model.Department)" /> <br /> 
+                <strong>Contract: </strong>
+                <input type="text" style="margin-left: 10.5%;" disabled value="@Html.DisplayFor(model => model.ContractType)" /> <br /> 
+                <strong>Date Started: </strong>
+                <input type="text" disabled value="@Html.DisplayFor(model => model.DateStarted)" /> <br /> 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5><u><i>Contact Information</i></u></h5>
+             <strong>Email Address: </strong>
+            <input type="text" style="margin-left: 7%;" disabled value="@Html.DisplayFor(model => model.Email)" /> <br /> 
+            <strong>Phone Number:</strong>
+            <input type="text" disabled value="@Html.DisplayFor(model => model.PhoneNumber)" /> <br />
+            <strong>Address: </strong>
+            <input type="text" style="margin-left: 14%;" disabled value="@Html.DisplayFor(model => model.StreetName)" /> <br />
+            <input type="text" style="margin-left: 25%;" disabled value="@Html.DisplayFor(model => model.Surbub)" /> <br />
+            <input type="text" style="margin-left: 25%;" disabled value="@Html.DisplayFor(model => model.City_Town)" /> <br />
+            <strong>Code</strong>
+            <input type="text" style="margin-left: 18%;" disabled value="@Html.DisplayFor(model => model.ZipCode)" /> <br />
+            <strong>Country</strong>
+            <input type="text" style="margin-left: 14%;" disabled value="@Html.DisplayFor(model => model.Country)" /> 
+        </div>
+    </div> <br />
+    <div class="row">
+        <div class="col-md-10">
+         
+        </div>
+    </div>
+   <a asp-action="Index" class="btn btn-danger form-control">Back</a>
+</div>
+</div>

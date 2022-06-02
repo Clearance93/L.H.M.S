@@ -1,0 +1,282 @@
+﻿@model ClinicalApp.Models.Prescription
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+
+    .top{
+        background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/281/main-gettyimages-485855783-1515512813.jpg");
+        background-size: cover;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .test{
+        padding: 10%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .row{
+      margin: 0 10%;
+      margin-top: 5%;
+    }
+
+    .modal{
+       margin-left: -90px;
+    }
+
+    .space{
+        background-color: whitesmoke;
+        color: #1d1d11;
+        border: 2px solid orangered;
+        margin-top: 25%;
+        border-radius: 15px;
+    }
+
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 80px;
+        z-index: 99;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    #navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo{
+        font-size: 2.3rem;
+        color: #fff;
+        text-decoration: none;
+        color: blue;
+    }
+
+    #navbar li{
+        list-style: none;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .logo:hover{
+        color: maroon;
+    }
+
+    #navbar li a {
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: blue;
+        transition: 0.3s ease;
+    }
+    #navbar li a:hover,
+    #navbar li a.active{
+        color: maroon;
+    }
+
+
+    #navbar li a:hover::after,
+    #navbar li a.active::after{
+        content: "";
+        width: 30%;
+        height: 3px;
+        background-color: maroon;
+        position: absolute;
+        bottom: -5px;
+        left: 20px;
+    }
+
+    .register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+
+dt{
+    font-family:'Times New Roman', Times, serif;
+}
+
+em{
+    font-size: 1.3em;
+    font-weight: 700;
+    color: red
+}
+
+</style>
+<div class="top">
+    <div class="test">
+        <div class="space col-md-12" style="margin-right: 25px;">
+          <h2 style="padding: 15px;">Hello <span class="text-danger">@Model.PatientName</span></h2>
+          <p style="padding: 15px;">For security purpose, please be sure that you are editing your own patient, no one should be allowed to adit other doctor's patients</p>
+          <p></p>
+          </a>
+        </div>
+          <div class="space col-md-12" style="margin-left: 25px;">
+          <h2 style="padding: 15px;" class="text-danger">@Model.PatientName</h2>
+          <p style="padding: 15px;">This page is an editable page only for patient <b class="text-danger">@Model.PatientName</b> whom He/She is in <b class="text-danger"></b> Department</p>
+          <p></p>
+          </a>
+        </div>
+    </div>
+
+
+
+<div class="container">
+
+</div>
+
+
+<div class="register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Hello @Model.PatientName</h3>
+                        <p>Please do check if the information is correct and it point to you. If the information is incorrect, please go to edit page an correct it</p>
+                        <input type="submit" name="" value="Doctor's details"/><br/>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Doctor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nurse</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading"></h3>
+                                <div class="row register-form">
+                                    <div class="col-md-12">
+                                            <dl class="row">
+                                                    <dt class = "col-sm-2">
+                                                        @Html.DisplayNameFor(model => model.Doctor)
+                                                    </dt>
+                                                    <dd class = "col-sm-10">
+                                                        @Html.DisplayFor(model => model.Doctor.DoctorFirstName) @Html.DisplayFor(model => model.Doctor.DoctorLastName)
+                                                    </dd>
+                                                    <dt class = "col-sm-12">
+                                                        <h3>@Html.DisplayNameFor(model => model.PatientName)</h3>
+                                                    </dt>
+                                                    <dd class = "col-sm-10">
+                                                        <em><u>@Html.DisplayFor(model => model.PatientName)</u></em>
+                                                    </dd>
+                                                    <dt class = "col-sm-12">
+                                                        <h3>@Html.DisplayNameFor(model => model.Amount)</h3>
+                                                    </dt>
+                                                    <dd class = "col-sm-10">
+                                                       <em><u>@Html.DisplayFor(model => model.Amount)</u></em>
+                                                    </dd>
+                                                    <dt class = "col-sm-12">
+                                                        <h3>@Html.DisplayNameFor(model => model.Frequency)</h3>
+                                                    </dt>
+                                                    <dd class = "col-sm-10">
+                                                       <em><u>@Html.DisplayFor(model => model.Frequency)</u></em>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                            <div>
+                                                <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@Model?.DoctorId">Edit</a> |
+                                                <a asp-action="Index" class="btn btn-danger">Back to List</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+     
+</div>
+
+   

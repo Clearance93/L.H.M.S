@@ -1,0 +1,266 @@
+﻿
+@model IEnumerable<ClinicalApp.Models.Habits>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+}
+</style>
+
+
+ <div class="grids">
+     <div>
+         <div class="flex-shrink-0 p-3 bg-info" style="width: 280px; height: 100%;">
+    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
+      <br /> 
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-danger">
+          Home
+        </a>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Dashboard
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-dark rounded">Employees</a></li>
+            <li><a asp-controller="Patient" asp-action="Index" class="link-dark rounded">Patients</a></li>
+            <li><a  class="link-dark rounded">Patient on merdication in hospital</a></li>
+            <li><a  class="link-dark rounded">Patient on merdication of hospital</a></li>
+          </ul>
+        </div>
+      </li>
+       <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#bookings-collapse" aria-expanded="false">
+          Bookings
+        </button>
+        <div class="collapse" id="bookings-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Medication</a></li>
+            <li><a  class="link-dark rounded">To See a Doctor</a></li>
+            <li><a  class="link-dark rounded">To See a Speciality</a></li>
+            <li><a  class="link-dark rounded">To See a patient</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#ward-collapse" aria-expanded="false">
+          Our Wards
+        </button>
+        <div class="collapse" id="ward-collapse">
+           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a  class="link-dark rounded">Children</a></li>
+            <li><a  class="link-dark rounded">Metinity</a></li>
+            <li><a  class="link-dark rounded">Men</a></li>
+            <li><a  class="link-dark rounded">Woman</a></li>
+            <li><a  class="link-dark rounded">psyc</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#role-collapse" aria-expanded="false">
+          Our Roles
+        </button>
+        <div class="collapse" id="role-collapse">
+           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="Paramedic" asp-action="Index" class="link-dark rounded">Paramedics</a></li>
+            <li><a asp-controller="Admin" asp-action="Index"  class="link-dark rounded">Doctors</a></li>
+            <li><a asp-controller="Doctors" asp-action="Index" class="link-dark rounded">Administration</a></li>
+            <li><a asp-controller="IT" asp-action="Index" class="link-dark rounded">IT</a></li>
+            <li><a asp-controller="HR" asp-action="Index" class="link-dark rounded">HR</a></li>
+             <li><a asp-controller="Clearner" asp-action="" class="link-dark rounded">Cleaner</a></li>
+            <li><a asp-controller="Nurse" asp-action="Index" class="link-dark rounded">Nurses</a></li>
+            <li><a asp-controller="Doctors" asp-action="Create" class="link-dark rounded">Add a Doctor</a></li>
+            <li><a asp-controller="Finance" asp-action="Index" class="link-dark rounded">Finance</a></li>
+            <li><a asp-controller="Management" asp-action="Index" class="link-dark rounded">Management</a></li>
+            <li><a asp-controller="Porter" asp-action="Index" class="link-dark rounded">Porter</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark rounded">Profile</a></li>
+            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><partial name="_LoginPartial" /></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+     </div>
+
+     <div>
+
+<a asp-action="Create" class="btn btn-success">Patient Habits</a>
+<table id="myTable" class="table table-hover table-stiped table-bordered">
+    <thead>
+        <tr class="bg-dark text-light">
+            <th>
+                Patient ID
+            </th>
+            <th>
+                Smoking
+            </th>
+            <th>
+                Drug Abuse
+            </th>
+            <th>
+                Excercise
+            </th>
+            <th>
+                Alcohol Intake
+            </th>
+            <th>
+                Special Diet
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Smoking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrugUse_Abuse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Excercise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlcoholIntake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diet)
+            </td>
+            <td>
+                 <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.HabitsId">Edit</a>
+                 @*<a asp-action="Details" class="btn btn-info" asp-route-id="@item.HabitsId">Details</a>*@
+                 @*<a asp-action="Delete" class="btn btn-dark" asp-route-id="@item.HabitsId">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+         <tr>
+            <td>
+                <a asp-controller="FinancialInformation" asp-action="Index" class="btn btn-outline-info">Finance</a>
+            </td>
+            <td>
+                <a asp-controller="Patient" asp-action="Index" class="btn btn-outline-danger">Patient</a>
+            </td>
+            <td>
+                <a asp-controller="MedicalRecords" asp-action="Index" class="btn btn-outline-primary">Medical</a>
+            </td>
+             <td>
+                <a asp-controller="Medication" asp-action="Index" class="btn btn-outline-success">Medication</a>
+            </td>
+            <td>
+                <a asp-controller="TretmentHistory" asp-action="Index" class="btn btn-outline-dark">Treatment</a>
+            </td>
+             <td>
+                <a asp-controller="WorkInformation" asp-action="Index" class="btn btn-outline-warning">Work Information</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,373 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .header{
+        min-width: 100vh;
+        width: 100%;
+        background-image: linear-gradient(rgba(13, 202, 240, 0.5), rgba(13, 202, 240, 0.5)), url("https://cdn.hswstatic.com/gif/becoming-doctor.jpg");
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        margin-top: -1.3%;
+        height: 100vh;
+    }
+   
+    .home{
+        padding: 20%;
+    }
+
+    .home h1{
+        margin-left: 3%;
+        font-weight: 700;
+        font-size: 3.8em;
+        font-family:'Times New Roman', Times, serif;
+    }
+
+    .mb{
+        font-weight: 500;
+        font-size: 1.1em;
+        color: orangered;
+        margin-left: 20px;
+    }
+
+    button{
+        margin-left: 20px;
+    }
+
+    .first{
+        text-align: center;
+        margin: 5px;
+        font-family:'Times New Roman', Times, serif;
+        text-shadow: -12px -15px 12px maroon;
+    }
+
+    u{
+        box-shadow: 10px 12px 10px blue;
+    }
+
+    .section-p1{
+        padding: 40px 80px;
+    }
+
+    .row{
+        margin-top: 10px;
+    }
+
+    #feature{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #feature .fe-box{
+        width: 180px;
+        text-align: center;
+        padding: 25px 15px;
+        box-shadow: 20px 20px 37px #111;
+        border: 1px solid #cce7d0;
+        border-radius: 4px;
+        margin: 25px 90px;
+    }
+
+    .img{
+        width: 145px;
+        height: 100px;
+    }
+
+    #feature .fe-box:hover{
+        box-shadow: -15px -15px 25px maroon;
+        background: rgba(226, 0, 0, 0.7);
+        animation: shake 0.7s;
+        animation-iteration-count: infinite;
+    }
+
+
+
+    #feature .fe-box .img{
+        width: 145px;
+        height: 100px;
+    }
+
+    #feature .fe-box h5{
+        display: inline-block;
+        line-height: 1;
+        padding: 10px 9px 7px 9px;
+        border-radius: 6px;
+        color: maroon;
+        background-color: orangered;
+    }
+
+    h5{
+        cursor: pointer;
+    }
+
+    .Hospitals{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .hos{
+        flex-basis: 32%;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hos img{
+        width: 100%;
+    }
+
+    .layer{
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.7s
+    }
+
+    .layer:hover{
+         background: rgba(226, 0, 0, 0.7);
+    }
+
+    h3{
+        color: #fff;
+    }
+
+    .layer h3{
+        width: 100%;
+        font-weight: 500;
+        color: #fff;
+        font-size: 26px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .layer:hover h3{
+        bottom: 49%;
+        opacity: 1;
+    }
+
+    .facilities{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 100px
+    }
+
+    .facility-col{
+        flex-basis: 31%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        border-radius: 10px;
+    }
+
+    .facility-col img{
+      height: 250px;
+      width: 350px;
+      border-radius: 10px;
+    }
+
+    .grids{
+        display: flex;
+    }
+
+    .cta{
+        margin: 50px auto;
+        width: 80%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0,0,0,0.7)), url("https://ichef.bbci.co.uk/news/976/cpsprodpb/15573/production/_100611478_paramedicsgetty.jpg");
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .cta h1{
+        color: #fff;
+        margin-bottom: 40px;
+        padding: 0;
+    }
+
+   
+</style>
+
+
+
+<section class="header">
+    <div class="home">
+          <h1 class="text-danger">Local Biggest Hospital</h1>
+            <p class="col-md-7 mb">Available 24/7 and we are just a call away incase of an emegency. We deliver the best service and care for our patient and make sure that our patient get the best treatment ever.</p>
+            <a asp-controller="" asp-action="" class="btn btn-outline-danger">learn More</a>
+    </div>
+</section>
+<h1 class="first"><i><u>L.H.M.S Roles</u></i></h1>
+<section id="feature" class="section-p1 container"> 
+       <div class="row">
+           <div class="col-md-3">
+               <div class="fe-box">
+                   <img src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Fsundaytimes%2Fprod%2Fweb%2Fbin%2F49faade0-8719-11ea-8a4a-4fb1a38ed7a5.jpg?crop=2667%2C1500%2C0%2C0" class="img" />
+                   <a asp-controller="paramedic" asp-action="Index"><h5>Paramedics</h5></a>
+               </div>
+           </div> 
+        <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://careersmart.org.uk/sites/default/files/2017-04/Hospital-porters.jpg" class="img" />
+        <a asp-controller="Porter" asp-action="Index"><h5>Porters</h5></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://dr-olivier-clinic.com/wp-content/uploads/2014/10/different-doctors.jpg" class="img" />
+        <a asp-controller="Doctors" asp-action="Index"><h5>Doctors</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://img.nbc.com/sites/nbcunbc/files/images/2020/11/13/Nurses_S1-KeyArt-Lg-2048x1152.jpg" class="img" />
+        <a asp-controller="Nurse" asp-action="Index"><h5>Nurses</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://media.istockphoto.com/photos/smiling-african-american-cleaner-holding-vacuum-cleaner-brush-near-picture-id1222545484?k=20&m=1222545484&s=612x612&w=0&h=n0_UB-vwvFyJAOIy2CGxuFmrzOcwz2ed0TuITy4cmZM=" class="img" />
+        <a asp-controller="Clearner" asp-action="Index"><h5>Clearners</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://maxpeoplehr.com/wp-content/uploads/2018/02/iStock-522259169.jpg" class="img" />
+        <a asp-controller="HR" asp-action="Index"><h5>HR</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://media.istockphoto.com/photos/blue-double-exposure-of-money-coins-stacking-with-bar-graph-for-and-picture-id1250581414?k=20&m=1250581414&s=612x612&w=0&h=HAL05aplFF-JL93ltg64siWfTwrrVyf4ldofZJSY-qo=" class="img" />
+        <a asp-controller="Finance" asp-action="Index"><h5>Finance</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://thumbs.dreamstime.com/b/internet-information-technology-businessman-hand-showing-concept-75784736.jpg" class="img" />
+        <a asp-controller="IT" asp-action="Index"><h5>IT</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://www.investopedia.com/thmb/3GMhevEeVcqlJrpCnpLl8gnebDk=/2644x1133/filters:fill(auto,1)/GettyImages-598255596-506f0abd74c64b5396d4733314b35de3.jpg" class="img" />
+        <a asp-controller="Manager" asp-action="Index"><h5>Management</h5></a>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="fe-box">
+                <img src="https://asiasociety.org/sites/default/files/styles/1200w/public/B/business-management-and-administration_accounting-training_flickr.jpg" class="img" />
+        <a asp-controller="Admin" asp-action="Index"><h5>Administration</h5></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="Hospitals">
+    <h1 class="first">Our hospitals</h1>
+    <p>Our hospital are national yet working with the top hospital national and internationa from medi-clinic to the top global hospitals</p>
+    <div class="row">
+        <div class="hos">
+            <img src="https://media.istockphoto.com/photos/building-with-large-h-sign-for-hospital-picture-id1130389312?k=20&m=1130389312&s=612x612&w=0&h=4edAr7WFKZfiENIVJlzC-qyUqV46GwCcDS-Kcr4aO_4=" />
+             <div class="layer">
+                <h3>Limpopo</h3>
+            </div>
+        </div>
+         <div class="hos">
+            <img src="https://images.squarespace-cdn.com/content/v1/53068e8be4b0d4022ddcacd3/1401381019349-KZ6RS10B7NS0HC79DG9P/Kaiser+Fontana+Hospital+1.jpg" />
+             <div class="layer">
+                <h3>Gauteng</h3>
+            </div>
+        </div>
+         <div class="hos">
+            <img src="https://i.pinimg.com/originals/a9/82/ba/a982bae0320f36be453efcae796afdab.jpg" />
+             <div class="layer">
+                <h3>KZN</h3>
+            </div>
+        </div>
+         <div class="hos">
+            <img src="https://media.istockphoto.com/photos/building-with-large-h-sign-for-hospital-picture-id855680246?k=20&m=855680246&s=612x612&w=0&h=AsYKIEa_I6zsbVHIORzH-ZlFgcEuJqXA3AsqfG8w3Mo=" />
+             <div class="layer">
+                <h3>Western Cape</h3>
+            </div>
+        </div>
+         <div class="hos">
+            <img src="https://media.istockphoto.com/photos/building-with-large-h-sign-for-hospital-picture-id855680246?k=20&m=855680246&s=612x612&w=0&h=AsYKIEa_I6zsbVHIORzH-ZlFgcEuJqXA3AsqfG8w3Mo=" />
+             <div class="layer">
+                <h3>North West</h3>
+            </div>
+        </div>
+         <div class="hos">
+            <img src="https://thumbs.dreamstime.com/b/hospital-building-typical-modern-large-urban-43153826.jpg" />
+             <div class="layer">
+                <h3>Eastern Cape</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="facilities">
+    <h1 class="first">Our Facilities</h1>
+    <p>We aim to give back that which a patient might think has lost and we also help in showing our patient the reason to live if hope is lost in them</p>
+   <div class="grids">
+        <div class="row">
+        <div class="facility-col">
+            <img src="https://www.care2curephysiotherapy.com/wp-content/uploads/2019/09/physiotherapy_techniques.jpg" />
+        <h3 style="color: #111">Our Physiotherapy</h3>
+        <p>Help the patient to maintain, or  store healthy through physical examination, diagnisis, prognosis, patient education, physical intervernation, rehabilitation and health</p>
+        </div>
+    </div>
+     <div class="row">
+       <div class="facility-col">
+            <img src="https://s3.amazonaws.com/utep-uploads/wp-content/uploads/counseling-wfu/2019/11/25104211/school-counselor.jpg" />
+        <h3 style="color: #111">Our Councelors</h3>
+        <p>Our counselors are there to assist clients in reaching their optimal level of psychosocial functioning through resolving negative patterns, prevention, rehabilitation, and improving quality of life.</p>
+       </div>
+    </div>
+     <div class="row">
+         <div class="facility-col">
+        <img src="https://www.kvc.org/wp-content/uploads/2015/12/iStock_000022468041_XXXLarge.jpg" />
+            <h3 style="color: #111">Our Social Workers</h3>
+        <p>L.H.M.S have social worker, people who are there to promotes social change, development, cohesion and the empowerment of people and communities</p>
+        </div>
+    </div>
+   </div>
+</section>
+
+
+<section class="cta">
+    <h1 class="first">For more information about our hospital please do contact us, We are 24/7 ready waiting to assist you.</h1>
+    <a asp-controller="" asp-action="" class="btn btn-outline-danger">CONTACT US</a>
+</section>
+
+<footer class="border-top footer text-muted">
+       <section class="footer">
+    <h4>About Us</h4>
+    <p>We are very dedicated people and our hospitals are always ready for your attention and we are willing to provide all <br /> the services to all our patients. We work 24/7 to make sure that you recieve the best serives ever, we are not voted number one local hospital for nothing, <br /> we work to bring joy and smile to the table.</p>
+    <div class="icons">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-twitter"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-linkedin"></i>
+    </div>
+    <p>With love <i class="bi bi-balloon-heart-fill"></i> from L.H.M.S</p>
+</section>
+
+    </footer>

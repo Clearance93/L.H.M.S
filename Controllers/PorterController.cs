@@ -44,7 +44,7 @@ namespace ClinicalApp.Controllers
         // POST: AdminController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PorterId, FirstName, LastName, EmailAddress, HomeAddress, Phonenumber, Image")] Porter porter)
+        public async Task<IActionResult> Create([Bind("Id, FirstName, LastName, Position, Department, ContractType, DateStarted, StreetName, Surbub, City_Town, ZipCode, Country, Image")] Porter porter)
         {
             string webRootPath = _environment.WebRootPath;
             var files = HttpContext.Request.Form.Files;
@@ -80,9 +80,9 @@ namespace ClinicalApp.Controllers
         // POST: AdminController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PorterId, FirstName, LastName, EmailAddress, HomeAddress, Phonenumber, Image")] Porter porter)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, FirstName, LastName, Position, Department, ContractType, DateStarted, StreetName, Surbub, City_Town, ZipCode, Country, Image")] Porter porter)
         {
-            if (id != porter.PorterId)
+            if (id != porter.Id)
             {
                 return NotFound();
             }

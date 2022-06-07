@@ -13,12 +13,12 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -87,22 +87,22 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
 
         }
        
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            //var firstName = user.FirstName;
-            //var lastName = user.LastName;
-            //var title = user.Title;
-            //var position = user.Position;
-            //var department = user.Department;
-            //var contractType = user.ContractType;
-            //var streetName = user.StreetName;
-            //var surbub = user.Surbub;
-            //var city_Town = user.City_Town;
-            //var zipCode = user.ZipCode;
-            //var country = user.Country;
-            //var image = user.Image;
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var title = user.Title;
+            var position = user.Position;
+            var department = user.Department;
+            var contractType = user.ContractType;
+            var streetName = user.StreetName;
+            var surbub = user.Surbub;
+            var city_Town = user.City_Town;
+            var zipCode = user.ZipCode;
+            var country = user.Country;
+            var image = user.Image;
 
 
             Username = userName;
@@ -111,18 +111,18 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,
-                //FirstName = firstName,
-                //LastName = lastName,
-                //Title = title,
-                //Position = position,
-                //Department = department,
-                //ContractType = contractType,
-                //StreetName = streetName,
-                //Country = country,
-                //Image = image,
-                //Surbub = surbub,
-                //City_Town = city_Town,
-                //ZipCode = zipCode
+                FirstName = firstName,
+                LastName = lastName,
+                Title = title,
+                Position = position,
+                Department = department,
+                ContractType = contractType,
+                StreetName = streetName,
+                Country = country,
+                Image = image,
+                Surbub = surbub,
+                City_Town = city_Town,
+                ZipCode = zipCode
             };
 
         }
@@ -149,8 +149,8 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
 
             //if (!ModelState.IsValid)
             //{
-            //    await LoadAsync(user);
-            //    return Page();
+               // await LoadAsync(user);
+               // return Page();
             //}
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
@@ -177,25 +177,72 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
             var country = Input.Country;
             var image = Input.Image;
 
-            if(Input.FirstName != firstName || Input.LastName != lastName || Input.Title != title || Input.Position != position || Input.Department != department || Input.ContractType != contractType || Input.StreetName != streetName || Input.Surbub != surbub || Input.City_Town != cityTown || Input.ZipCode != zipCode || Input.Country != country || Input.Image != image)
+            if(Input.FirstName == firstName || Input.LastName == lastName || Input.Title == title || Input.StreetName == streetName || Input.Surbub == surbub || Input.City_Town == cityTown || Input.ZipCode == zipCode || Input.Country == country)
             {
-                //user.FirstName = Input.FirstName;
-                //user.LastName = Input.LastName;
-                //user.Title = Input.Title;
-                //user.Position = Input.Position; 
-                //user.Department = Input.Department;
-                //user.ContractType = Input.ContractType;
-                //user.StreetName = Input.StreetName;
-                //user.Surbub = Input.Surbub;
-                //user.City_Town = Input.City_Town;
-                //user.ZipCode = Input.ZipCode;
-                //user.Country = Input.Country;   
-                //user.Image = Input.Image;
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName; 
+                user.Title = Input.Title;   
+                user.StreetName = Input.StreetName; 
+                user.Surbub = Input.Surbub; 
+                user.City_Town = Input.City_Town;
+                user.ZipCode = Input.ZipCode;
+                user.Country = Input.Country;
+                await _userManager.UpdateAsync(user);
+            }
+
+            if(Input.Position == Position.Doctor || Input.Position == Position.Porters || Input.Position == Position.Nurse || Input.Position == Position.Manager || Input.Position == Position.Finance || Input.Position == Position.Admin || Input.Position == Position.Cleaner || Input.Position == Position.HR || Input.Position == Position.IT || Input.Position == Position.Paramedics)
+            {
+                user.Position = Position.Doctor;
+                user.Position = Position.Porters;
+                user.Position = Position.Nurse;
+                user.Position = Position.Manager;
+                user.Position = Position.Finance;   
+                user.Position = Position.Admin;
+                user.Position = Position.Cleaner;
+                user.Position = Position.HR;
+                user.Position = Position.IT;
+                user.Position = Position.Paramedics;
+                await _userManager.UpdateAsync(user);   
+            }
+
+            if(Input.Department == Department.IT || Input.Department == Department.Porter || Input.Department == Department.Management || Input.Department == Department.Theater || Input.Department == Department.Cleaner || Input.Department == Department.Admin || Input.Department == Department.Clinical || Input.Department == Department.Finanace || Input.Department == Department.HR || Input.Department == Department.Technical || Input.Department == Department.Paramedical || Input.Department == Department.OPD || Input.Department == Department.Medical || Input.Department == Department.Nursing || Input.Department == Department.Patholodgy || Input.Department == Department.Rehabilitation || Input.Department == Department.Physical || Input.Department == Department.Technical || Input.Department == Department.Radiology)
+            {
+                user.Department = Department.IT;    
+                user.Department = Department.Porter;    
+                user.Department = Department.Management;
+                user.Department = Department.Theater;
+                user.Department = Department.Cleaner;
+                user.Department = Department.Admin;
+                user.Department = Department.Clinical;
+                user.Department = Department.Finanace;
+                user.Department = Department.HR;
+                user.Department = Department.Technical; 
+                user.Department = Department.Paramedical;
+                user.Department = Department.OPD;
+                user.Department = Department.Medical;
+                user.Department = Department.Nursing;   
+                user.Department = Department.Patholodgy;    
+                user.Department = Department.Rehabilitation;
+                user.Department = Department.Physical;
+                user.Department = Department.Technical;
+                user.Department = Department.Radiology;
+                await _userManager.UpdateAsync(user);
+            }
+
+            if (Request.Form.Files.Count > 0)
+            {
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    user.Image = dataStream.ToString();
+                }
+                await _userManager.UpdateAsync(user);
             }
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
-        }
+         }
     }
 }

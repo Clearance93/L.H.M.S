@@ -1,6 +1,7 @@
 using ClinicalApp;
 using ClinicalApp.Data;
 using ClinicalApp.Interface;
+using ClinicalApp.Models;
 using ClinicalApp.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -8,11 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using EmailSender = ClinicalApp.Utility.EmailSender;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("DatabaseContextConnection");
+//var connectionString = builder.Configuration.GetConnectionString("DatabaseContextConnection");
 
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+   // builder.Services.AddDbContext<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<DatabaseContext>()
         .AddDefaultTokenProviders()
         .AddDefaultUI();
@@ -20,7 +23,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
-    options.Password.RequiredLength = 7;
+    options.Password.RequiredLength = 5;
     options.Password.RequiredUniqueChars = 1;
     options.Password.RequireDigit = false;
     options.Password.RequireLowercase = false;
@@ -47,8 +50,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-builder.Services.AddDbContext<DatabaseContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IDoctorRespository, DoctorRepository>();

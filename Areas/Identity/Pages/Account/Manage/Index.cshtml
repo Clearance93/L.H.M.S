@@ -1,4 +1,5 @@
 ﻿@page
+@using ClinicalApp.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Profile";
@@ -17,11 +18,112 @@
                 <input asp-for="Username" class="form-control" disabled />
                 <label asp-for="Username" class="form-label"></label>
             </div>
+              <div class="form-floating">
+                <input asp-for="Input.Title" class="form-control" />
+                <label asp-for="Input.Title" class="form-label"></label>
+                <span asp-validation-for="Input.Title" class="text-danger"></span>
+            </div>
+              <div class="form-floating">
+                <input asp-for="Input.FirstName" class="form-control" />
+                <label asp-for="Input.FirstName" class="form-label"></label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+              <div class="form-floating">
+                <input asp-for="Input.LastName" class="form-control" />
+                <label asp-for="Input.LastName" class="form-label"></label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
             <div class="form-floating">
                 <input asp-for="Input.PhoneNumber" class="form-control" />
                 <label asp-for="Input.PhoneNumber" class="form-label"></label>
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
+             <div class="form-floating">
+                <input asp-for="Input.StreetName" class="form-control" />
+                <label asp-for="Input.StreetName" class="form-label"></label>
+                <span asp-validation-for="Input.StreetName" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Surbub" class="form-control" />
+                <label asp-for="Input.Surbub" class="form-label"></label>
+                <span asp-validation-for="Input.Surbub" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="Input.City_Town" class="form-control" />
+                <label asp-for="Input.City_Town" class="form-label"></label>
+                <span asp-validation-for="Input.City_Town" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.ZipCode" class="form-control" />
+                <label asp-for="Input.ZipCode" class="form-label"></label>
+                <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" />
+                <label asp-for="Input.Country" class="form-label"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+          <div class="col-md-12" style="margin-left: 105%; margin-top: -100%">
+              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                @*<label asp-for="Input.Image" class="form-label" style="width: 100%;"></label>*@
+                    @if(Model.Input.Image != null)
+                    {
+                        <img id="image" style="width: 350px; height: 350px; object-fit: cover" src="@Model.Input.Image">
+                    }
+                    else
+                    {
+                        <img id="image" style="width: 350px; height: 350px; border-radius: 20px; object-fit:cover" src="" />
+                    }
+                    <input type="file"
+                           accept=".png,.jpg,.jpeg,.gif,.tif"
+                           asp-for="Input.Image"
+                           class="form-control"
+                           style="border:0px!important;padding:0px;padding-top:10px;padding-bottom:30px;"
+                           onchange="document.getElementById('image). src=window.URL.createObjectUrl(this.files[0])" />
+                    <span asp-validation-for="Input.Image" class="text-danger"></span>
+                    </div>
+                      <div class="form-floating">
+                        <select asp-for="Input.Position" asp-items="Html.GetEnumSelectList<Position>()" class="form-control" aria-required="true"></select>
+                        <label asp-for="Input.Position"></label>
+                        <span asp-validation-for="Input.Position" class="text-danger"></span>
+                    </div>
+                     <div class="form-floating">
+                        <select asp-for="Input.Department" class="form-control" asp-items="Html.GetEnumSelectList<Department>()"  aria-required="true"></select>
+                        <label asp-for="Input.Department"></label>
+                        <span asp-validation-for="Input.Department" class="text-danger"></span>
+                    </div>
+                     <div class="form-floating">
+                        <select asp-for="Input.ContractType" asp-items="Html.GetEnumSelectList<ContractType>()" class="form-control"aria-required="true"></select>
+                        <label asp-for="Input.ContractType"></label>
+                        <span asp-validation-for="Input.ContractType" class="text-danger"></span>
+                    </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" />
+                <label asp-for="Input.Country" class="form-label"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" />
+                <label asp-for="Input.Country" class="form-label"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" />
+                <label asp-for="Input.Country" class="form-label"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" />
+                <label asp-for="Input.Country" class="form-label"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+             <div class="form-floating">
+                <input asp-for="Input.Country" class="form-control" />
+                <label asp-for="Input.Country" class="form-label"></label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+          </div>
             <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
         </form>
     </div>

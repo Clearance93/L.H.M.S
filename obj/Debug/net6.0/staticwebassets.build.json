@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Y5DRsWsygY4mxrES2Ud37TEEM1ZqvbcSN/nTsukNIfU=",
+  "Hash": "2aTQR9rVI+1vboX88xGDgqO4eT0RGZWj7cgtWL6/rWI=",
   "Source": "ClinicalApp",
   "BasePath": "_content/ClinicalApp",
   "Mode": "Default",
@@ -1479,6 +1479,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\Doctors\\7a28b19d-37e9-4742-899e-0c0189082b42.jpg"
     },
     {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Doctors\\7c5b21c2-d605-408f-8b9e-23ae382efec9.jpeg",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Doctors/7c5b21c2-d605-408f-8b9e-23ae382efec9.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Doctors\\7c5b21c2-d605-408f-8b9e-23ae382efec9.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Doctors\\9d04f42d-56fb-42e5-88a9-496407675c3b.jpg",
       "SourceId": "ClinicalApp",
       "SourceType": "Discovered",
@@ -1511,6 +1528,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Doctors\\9d91c177-8a81-47b3-b659-10b201d96a48.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Doctors\\a869bbad-0aba-4f86-80f2-2b8c22fe568c.jpg",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Doctors/a869bbad-0aba-4f86-80f2-2b8c22fe568c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Doctors\\a869bbad-0aba-4f86-80f2-2b8c22fe568c.jpg"
     },
     {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Doctors\\ab95071e-b67c-4dea-8e09-70ca260fa5e1.jpg",
@@ -2006,6 +2040,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\14859f79-1d86-4405-8918-29aac8e696db.jpg"
     },
     {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\14da1cf2-22ef-4139-9245-1ae6cef4a39b.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/14da1cf2-22ef-4139-9245-1ae6cef4a39b.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\14da1cf2-22ef-4139-9245-1ae6cef4a39b.png"
+    },
+    {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\17dbaa4e-9bd9-418b-8bca-3234f8443115.png",
       "SourceId": "ClinicalApp",
       "SourceType": "Discovered",
@@ -2021,6 +2072,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\17dbaa4e-9bd9-418b-8bca-3234f8443115.png"
+    },
+    {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\1947f200-b87f-42bd-812d-3039bea744b5.jpg",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/1947f200-b87f-42bd-812d-3039bea744b5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\1947f200-b87f-42bd-812d-3039bea744b5.jpg"
     },
     {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\1b3e99a8-bdd2-4e7b-a5e0-68c9d79db2aa.gif",
@@ -2089,6 +2157,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\2b2da6cb-e7d2-471f-8010-779fdf9ea7ac.png"
+    },
+    {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\2bf2f717-ba5b-463b-9524-1d31f80ab4e5.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/2bf2f717-ba5b-463b-9524-1d31f80ab4e5.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\2bf2f717-ba5b-463b-9524-1d31f80ab4e5.png"
     },
     {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\2d4a1c5c-8cbb-4ea2-80a5-5ed5b21e01f9.png",
@@ -2278,6 +2363,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\4d42ed18-0b0b-46b6-8876-2c9127e9c798.jpg"
     },
     {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\4e375d8b-d34c-4433-9380-77de4e200f89.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/4e375d8b-d34c-4433-9380-77de4e200f89.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\4e375d8b-d34c-4433-9380-77de4e200f89.png"
+    },
+    {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\57afd4ad-ec12-4963-9aa6-11dd7469a52e.jpg",
       "SourceId": "ClinicalApp",
       "SourceType": "Discovered",
@@ -2412,6 +2514,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\7127363d-f1ed-45ce-a544-fa09c63eb2f1.png"
+    },
+    {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\73ced2b0-cac7-4452-86c4-9e29ec8085c7.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/73ced2b0-cac7-4452-86c4-9e29ec8085c7.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\73ced2b0-cac7-4452-86c4-9e29ec8085c7.png"
     },
     {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\7874464a-06c9-4616-8691-9a9950222f92.jpg",
@@ -2550,6 +2669,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\a9707d46-7238-460b-af28-c033d341a61a.jpg"
     },
     {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\ab72ddf1-4e82-4862-b411-1a81a8b2ecae.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/ab72ddf1-4e82-4862-b411-1a81a8b2ecae.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\ab72ddf1-4e82-4862-b411-1a81a8b2ecae.png"
+    },
+    {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\af4094d9-85aa-44b7-9f49-8141a33e866b.jpg",
       "SourceId": "ClinicalApp",
       "SourceType": "Discovered",
@@ -2565,6 +2701,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\af4094d9-85aa-44b7-9f49-8141a33e866b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\b74ac384-2395-4608-9f2a-5a44303b49b0.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/b74ac384-2395-4608-9f2a-5a44303b49b0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\b74ac384-2395-4608-9f2a-5a44303b49b0.png"
     },
     {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\c12d8d80-5fa4-4b15-8d5d-5978c58b6daf.png",
@@ -2684,6 +2837,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Registration\\e3bb7ad9-65d9-43e0-8f76-0dfbfd724ab7.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\e653a888-9080-468c-9886-089fb34935ec.png",
+      "SourceId": "ClinicalApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\",
+      "BasePath": "_content/ClinicalApp",
+      "RelativePath": "Images/Registration/e653a888-9080-468c-9886-089fb34935ec.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Registration\\e653a888-9080-468c-9886-089fb34935ec.png"
     },
     {
       "Identity": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\wwwroot\\Images\\Registration\\ea86313c-c8fa-443c-9b7f-f6c51c82eac3.png",

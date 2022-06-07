@@ -1,14 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
     
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a id="manage" class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><marquee>@UserManager.GetUserName(User)!</marquee></a>
+            @if(User != null)
+            {
+                <a id="manage" class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><marquee>@UserManager.GetUserName(User)!</marquee></a>
+            }
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

@@ -85,10 +85,12 @@ img{
 
 .grids{
     display: flex;
+    margin-top: -1%;
 }
 
-
 </style>
+
+
 
 
  <div class="grids">
@@ -106,7 +108,7 @@ img{
         </a>
       </li>
      </ul>
-      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+      <ul class="btn-toggle-nav text-dark list-unstyled fw-normal pb-1 small">
             <li><a asp-controller="UserRole" asp-action="Index" class="link-light rounded"><i class="bi bi-people-fill"></i>&nbsp;&nbsp;Employees</a></li>
             <li><a asp-controller="Patient" asp-action="Index" class="link-light rounded"><i class="bi bi-hospital"></i>&nbsp;&nbsp;Patients</a></li>
             <li><a asp-controller="Chronic_Desease" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication in hospital</a></li>
@@ -124,23 +126,18 @@ img{
             <li><a asp-controller="Manager" asp-action="Index" class="link-light rounded"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Management</a></li>
             <li><a asp-controller="Porter" asp-action="Index" class="link-light rounded"><i class="fa-solid fa-skull-crossbones"></i>&nbsp;&nbsp;Porter</a></li>
 
-            <li><a  class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication of hospital</a></li>
-            <li><a  class="link-light rounded">Medication</a></li>
-            <li><a  class="link-light rounded">To See a Doctor</a></li>
-            <li><a  class="link-light rounded">To See a Speciality</a></li>
-            <li><a  class="link-light rounded">To See a patient</a></li>
-
-            <li><a  class="link-light rounded">Children</a></li>
-            <li><a  class="link-light rounded">Metinity</a></li>
-            <li><a  class="link-light rounded">Men</a></li>
-            <li><a  class="link-light rounded">Woman</a></li>
-            <li><a  class="link-light rounded">psyc</a></li>
-
+            <li><a asp-controller="P_Hospital" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication of hospital</a></li>
+            <li><a asp-controller="InComplete" asp-action="Index" class="link-light rounded"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Patientwho didnt complete treatment</a></li>
+            <li><a asp-controller="PickUpMeds" asp-action="Index" class="link-light rounded"><i class="bi bi-collection-fill"></i>&nbsp;&nbsp;Collection</a></li>
+             <li><a asp-controller="MaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-male"></i>&nbsp;&nbsp;Male Ward</a></li>
+            <li><a asp-controller="FemaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-female"></i>&nbsp;&nbsp;Female Ward</a></li>
+            <li><a asp-controller="MetinityWard" asp-action="Index" class="link-light rounded"><i class="fas fa-baby"></i>&nbsp;&nbsp;Metinity Ward</a></li>
+           
              
 
        
       <li class="border-top my-3"></li>
-      <li class="mb-1">
+     @* <li class="mb-1">
         <button class="btn btn-toggle align-items-center bg-danger text-light rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
           Account
         </button>
@@ -151,11 +148,12 @@ img{
             <li><partial name="_LoginPartial" /></li>
           </ul>
         </div>
-      </li>
+      </li>*@
     </ul>
   </div>
      </div>
-     <div>
+
+     <div class="container" style="margin-top: 36px;">
 
 <table id="example" class="table table-hover table-stiped table-bordered">
     <thead>

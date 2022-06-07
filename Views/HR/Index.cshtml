@@ -84,13 +84,14 @@ img{
 
 .grids{
     display: flex;
+    margin-top: -1%;
 }
 </style>
 
 
  <div class="grids">
      <div>
-         <div class="flex-shrink-0 p-3 bg-info" style="width: 280px; height: 100%;">
+         <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 100%;">
     <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
       <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
@@ -98,88 +99,58 @@ img{
     </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
-        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-danger">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light">
           Home
         </a>
       </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
-        </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a asp-controller="UserRole" asp-action="Index" class="link-dark rounded">Employees</a></li>
-            <li><a asp-controller="Patient" asp-action="Index" class="link-dark rounded">Patients</a></li>
-            <li><a  class="link-dark rounded">Patient on merdication in hospital</a></li>
-            <li><a  class="link-dark rounded">Patient on merdication of hospital</a></li>
-          </ul>
-        </div>
-      </li>
-       <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#bookings-collapse" aria-expanded="false">
-          Bookings
-        </button>
-        <div class="collapse" id="bookings-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a  class="link-dark rounded">Medication</a></li>
-            <li><a  class="link-dark rounded">To See a Doctor</a></li>
-            <li><a  class="link-dark rounded">To See a Speciality</a></li>
-            <li><a  class="link-dark rounded">To See a patient</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#ward-collapse" aria-expanded="false">
-          Our Wards
-        </button>
-        <div class="collapse" id="ward-collapse">
-           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a  class="link-dark rounded">Children</a></li>
-            <li><a  class="link-dark rounded">Metinity</a></li>
-            <li><a  class="link-dark rounded">Men</a></li>
-            <li><a  class="link-dark rounded">Woman</a></li>
-            <li><a  class="link-dark rounded">psyc</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#role-collapse" aria-expanded="false">
-          Our Roles
-        </button>
-        <div class="collapse" id="role-collapse">
-           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a asp-controller="Paramedic" asp-action="Index" class="link-dark rounded">Paramedics</a></li>
-            <li><a asp-controller="Admin" asp-action="Index"  class="link-dark rounded">Doctors</a></li>
-            <li><a asp-controller="Doctors" asp-action="Index" class="link-dark rounded">Administration</a></li>
-            <li><a asp-controller="IT" asp-action="Index" class="link-dark rounded">IT</a></li>
-            <li><a asp-controller="HR" asp-action="Index" class="link-dark rounded">HR</a></li>
-             <li><a asp-controller="Clearner" asp-action="" class="link-dark rounded">Cleaner</a></li>
-            <li><a asp-controller="Nurse" asp-action="Index" class="link-dark rounded">Nurses</a></li>
-            <li><a asp-controller="Doctors" asp-action="Create" class="link-dark rounded">Add a Doctor</a></li>
-            <li><a asp-controller="Finance" asp-action="Index" class="link-dark rounded">Finance</a></li>
-            <li><a asp-controller="Management" asp-action="Index" class="link-dark rounded">Management</a></li>
-            <li><a asp-controller="Porter" asp-action="Index" class="link-dark rounded">Porter</a></li>
-          </ul>
-        </div>
-      </li>
+     </ul>
+      <ul class="btn-toggle-nav text-dark list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-light rounded"><i class="bi bi-people-fill"></i>&nbsp;&nbsp;Employees</a></li>
+            <li><a asp-controller="Patient" asp-action="Index" class="link-light rounded"><i class="bi bi-hospital"></i>&nbsp;&nbsp;Patients</a></li>
+            <li><a asp-controller="Chronic_Desease" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication in hospital</a></li>
+            
+
+            <li><a asp-controller="Paramedic" asp-action="Index" class="link-light rounded"><i class="fas fa-ambulance"></i>&nbsp;&nbsp;Paramedics</a></li>
+            <li><a asp-controller="Doctors" asp-action="Index"  class="link-light rounded"><i class="fas fa-user-md"></i>&nbsp;&nbsp;Doctors</a></li>
+            <li><a asp-controller="Admin" asp-action="Index"  class="link-light rounded"><i class="bi bi-person-workspace"></i>&nbsp;&nbsp;Admin</a></li>
+            <li><a asp-controller="IT" asp-action="Index" class="link-light rounded"><i class="bi bi-laptop"></i>&nbsp;&nbsp;IT</a></li>
+            <li><a asp-controller="HR" asp-action="Index" class="link-light rounded"><i class="bi bi-person-check-fill"></i>&nbsp;&nbsp;HR</a></li>
+             <li><a asp-controller="Clearner" asp-action="" class="link-light rounded"><i class="fas fa-hands-wash"></i>&nbsp;&nbsp;Cleaner</a></li>
+            <li><a asp-controller="Nurse" asp-action="Index" class="link-light rounded"><i class="fas fa-user-nurse"></i>&nbsp;&nbsp;Nurses</a></li>
+            <li><a asp-controller="Doctors" asp-action="Create" class="link-light rounded"><i class="fas fa-user-plus"></i>&nbsp;&nbsp;Add a Doctor</a></li>
+            <li><a asp-controller="Finance" asp-action="Index" class="link-light rounded"><i class="bi bi-cash-coin"></i>&nbsp;&nbsp;Finance</a></li>
+            <li><a asp-controller="Manager" asp-action="Index" class="link-light rounded"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Management</a></li>
+            <li><a asp-controller="Porter" asp-action="Index" class="link-light rounded"><i class="fa-solid fa-skull-crossbones"></i>&nbsp;&nbsp;Porter</a></li>
+
+            <li><a asp-controller="P_Hospital" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication of hospital</a></li>
+            <li><a asp-controller="InComplete" asp-action="Index" class="link-light rounded"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Patientwho didnt complete treatment</a></li>
+            <li><a asp-controller="PickUpMeds" asp-action="Index" class="link-light rounded"><i class="bi bi-collection-fill"></i>&nbsp;&nbsp;Collection</a></li>
+             <li><a asp-controller="MaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-male"></i>&nbsp;&nbsp;Male Ward</a></li>
+            <li><a asp-controller="FemaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-female"></i>&nbsp;&nbsp;Female Ward</a></li>
+            <li><a asp-controller="MetinityWard" asp-action="Index" class="link-light rounded"><i class="fas fa-baby"></i>&nbsp;&nbsp;Metinity Ward</a></li>
+           
+             
+
+       
       <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+     @* <li class="mb-1">
+        <button class="btn btn-toggle align-items-center bg-danger text-light rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
           Account
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Profile</a></li>
-            <li><a href="#" class="link-dark rounded">Settings</a></li>
+            <li><a href="#" class="link-light rounded">Profile</a></li>
+            <li><a href="#" class="link-light rounded">Settings</a></li>
             <li><partial name="_LoginPartial" /></li>
           </ul>
         </div>
-      </li>
+      </li>*@
     </ul>
   </div>
      </div>
 
-     <div>
+
+     <div class="container" style="margin-top: 36px;">
     <a asp-action="Create" class="btn btn-warning">Create</a>
 <table id="myTable" class="table table-bordered table-hover table-striped">
     <thead>

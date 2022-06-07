@@ -1,11 +1,7 @@
 html {
     font-size: 14px;
-    background-color: rgba(194, 233, 251, 1);
 }
 
-body {
-    background-color: rgba(194, 233, 251, 1);
-}
 
 @media (min-width: 768px) {
   html {

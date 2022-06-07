@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ClinicalApp.Data
 {
 
-    public class DatabaseContext : IdentityDbContext
+    public class DatabaseContext : IdentityDbContext<ApplicationUser>
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
         public DbSet<Doctor> Doctors { get; set; }

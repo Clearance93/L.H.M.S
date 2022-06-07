@@ -16,7 +16,11 @@ namespace ClinicalApp.Repository
 
         public Porter Create(Porter porter)
         {
-            _context.Porters.Add(porter);
+           //_context.Porters.Attach(porter);
+           // _context.Entry(porter).State = EntityState.Added;
+           // _context.SaveChanges();
+           // return porter;
+           _context.Porters.Add(porter);
             _context.SaveChanges();
             return porter;
         }
@@ -37,7 +41,7 @@ namespace ClinicalApp.Repository
 
         public Porter GetById(int id)
         {
-            Porter porter = _context.Porters.FirstOrDefault(x => x.PorterId == id);
+            Porter porter = _context.Porters.FirstOrDefault(x => x.Id == id);
             return porter;
         }
 

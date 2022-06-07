@@ -199,16 +199,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsYW5kZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Chronic_Desease/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hyb25pY19EZXNlYXNlXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Chronic_Desease/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hyb25pY19EZXNlYXNlXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Chronic_Desease/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hyb25pY19EZXNlYXNlXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Chronic_Desease/Edit.cshtml]
@@ -285,6 +277,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Doctors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/FemaleWards/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVtYWxlV2FyZHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/FemaleWards/Index.cshtml]
@@ -411,6 +407,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSVRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MaleWards/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFsZVdhcmRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MaleWards/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFsZVdhcmRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -473,6 +473,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Medication/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MetinityWard/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWV0aW5pdHlXYXJkXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MetinityWard/Index.cshtml]

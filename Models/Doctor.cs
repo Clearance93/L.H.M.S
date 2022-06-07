@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClinicalApp.Models
 {
-    public class Doctor
+    public class Doctor 
     {
           [Key]
         public int DoctorId { get; set; }

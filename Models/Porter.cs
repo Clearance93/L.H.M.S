@@ -1,22 +1,36 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ClinicalApp.Models
 {
-    public class Porter
+    public class Porter 
     {
         [Key]
-        public int PorterId { get; set; }
-        [Required(ErrorMessage = "First Name is required"), Display(Name = "First Name")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Title { get; set; }
+        [Required, Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "Last Name is required"), Display(Name = "Last Name")]
+        [Required, Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "Email Addressis required"), Display(Name = "Email Address")]
-        public string EmailAddress { get; set; }
-        [Required(ErrorMessage = "Home Address is required"), Display(Name = "Home Address")]
-        public string HomeAddress { get; set; }
-        [Required(ErrorMessage = "Phone Number is required"), Display(Name = "Phone Number"), MaxLength(10)]
-        public string Phonenumber { get; set; }
-        [Required(ErrorMessage = "Your photo is required!")]
+        public Position Position { get; set; }
+        [Display(Name = "Select the department you belong to")]
+        public Department Department { get; set; }
+        [Required, Display(Name = "Contract type")]
+        public ContractType ContractType { get; set; }
+        [Required, Display(Name = "Date Stated")]
+        public DateTime DateStarted { get; set; }
+        [EmailAddress]
+        [Compare("Username")]
+        [Required, Display(Name = "Street Name")]
+        public string StreetName { get; set; }
+        public string Surbub { get; set; }
+        [Required, Display(Name = "City/Town")]
+        public string City_Town { get; set; }
+        [Required, Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+        public string Country { get; set; }
+        [Required]
         public string Image { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClinicalApp.Migrations
 {
-    public partial class Initialmigration : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,20 +46,19 @@ namespace ClinicalApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Position = table.Column<int>(type: "int", nullable: true),
-                    Department = table.Column<int>(type: "int", nullable: true),
-                    ContractType = table.Column<int>(type: "int", nullable: true),
-                    DateStarted = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    StreetName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Surbub = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    City_Town = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Position = table.Column<int>(type: "int", nullable: false),
+                    Department = table.Column<int>(type: "int", nullable: false),
+                    ContractType = table.Column<int>(type: "int", nullable: false),
+                    DateStarted = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StreetName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surbub = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City_Town = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -96,7 +95,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -216,7 +214,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -378,7 +375,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -430,7 +426,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -518,7 +513,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -570,7 +564,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -610,18 +603,25 @@ namespace ClinicalApp.Migrations
                 name: "Porters",
                 columns: table => new
                 {
-                    PorterId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HomeAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phonenumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Position = table.Column<int>(type: "int", nullable: false),
+                    Department = table.Column<int>(type: "int", nullable: false),
+                    ContractType = table.Column<int>(type: "int", nullable: false),
+                    DateStarted = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StreetName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surbub = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City_Town = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Porters", x => x.PorterId);
+                    table.PrimaryKey("PK_Porters", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -747,7 +747,6 @@ namespace ClinicalApp.Migrations
                     AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Country = table.Column<string>(type: "nvarchar(max)", nullable: false),

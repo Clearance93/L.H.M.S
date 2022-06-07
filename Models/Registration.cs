@@ -40,7 +40,7 @@ namespace ClinicalApp.Models
         Medical,
         Nursing,
         Paramedical,
-        Paramedic,
+        Porter,
         Patholodgy,
         Physical,
         Rehabilitation,

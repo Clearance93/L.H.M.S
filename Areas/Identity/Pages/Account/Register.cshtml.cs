@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
 using ClinicalApp.Data;
+using ClinicalApp.Interface;
 using ClinicalApp.Models;
 using ClinicalApp.Utility;
 using Microsoft.AspNetCore.Authentication;
@@ -19,25 +20,29 @@ namespace ClinicalApp.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserStore<IdentityUser> _userStore;
-        private readonly IUserEmailStore<IdentityUser> _emailStore;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserStore<ApplicationUser> _userStore;
+        private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IWebHostEnvironment _environment;
         private readonly DatabaseContext _context;
+        private readonly IDoctorRespository _doc;
+        private readonly IPorterRepository _porter;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            IUserStore<IdentityUser> userStore,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            IUserStore<ApplicationUser> userStore,
+            SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager,
             IWebHostEnvironment environment,
-            DatabaseContext context)
+            DatabaseContext context,
+            IDoctorRespository doc,
+            IPorterRepository porter)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +53,8 @@ namespace ClinicalApp.Areas.Identity.Pages.Account
             _roleManager = roleManager;
             _environment = environment;
             _context = context;
+            _doc = doc;
+            _porter = porter;
         }
 
         /// <summary>
@@ -184,6 +191,13 @@ namespace ClinicalApp.Areas.Identity.Pages.Account
                 user.Image = Input.Image;
 
 
+            //var porter = new Porter();
+            //if(Input.Position == Position.Porters)
+            //{
+            //    _porter.Create(porter);
+            //}
+
+
             var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if(!await _roleManager.RoleExistsAsync(Workers.AdminRole))
@@ -288,19 +302,19 @@ namespace ClinicalApp.Areas.Identity.Pages.Account
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(ApplicationUser)}'. " +
+                    $"Ensure that '{nameof(ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
 
-        private IUserEmailStore<IdentityUser> GetEmailStore()
+        private IUserEmailStore<ApplicationUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<IdentityUser>)_userStore;
+            return (IUserEmailStore<ApplicationUser>)_userStore;
         }
     }
 }

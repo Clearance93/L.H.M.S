@@ -15,13 +15,19 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IWebHostEnvironment _environment;
+        private readonly DatabaseContext _context;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IWebHostEnvironment environment,
+            DatabaseContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _environment = environment;
+            _context = context;
 
         }
 
@@ -190,52 +196,86 @@ namespace ClinicalApp.Areas.Identity.Pages.Account.Manage
                 await _userManager.UpdateAsync(user);
             }
 
-            if(Input.Position == Position.Doctor || Input.Position == Position.Porters || Input.Position == Position.Nurse || Input.Position == Position.Manager || Input.Position == Position.Finance || Input.Position == Position.Admin || Input.Position == Position.Cleaner || Input.Position == Position.HR || Input.Position == Position.IT || Input.Position == Position.Paramedics)
+             if(Input.Position == position)
             {
-                user.Position = Position.Doctor;
-                user.Position = Position.Porters;
-                user.Position = Position.Nurse;
-                user.Position = Position.Manager;
-                user.Position = Position.Finance;   
-                user.Position = Position.Admin;
-                user.Position = Position.Cleaner;
-                user.Position = Position.HR;
-                user.Position = Position.IT;
-                user.Position = Position.Paramedics;
-                await _userManager.UpdateAsync(user);   
-            }
-
-            if(Input.Department == Department.IT || Input.Department == Department.Porter || Input.Department == Department.Management || Input.Department == Department.Theater || Input.Department == Department.Cleaner || Input.Department == Department.Admin || Input.Department == Department.Clinical || Input.Department == Department.Finanace || Input.Department == Department.HR || Input.Department == Department.Technical || Input.Department == Department.Paramedical || Input.Department == Department.OPD || Input.Department == Department.Medical || Input.Department == Department.Nursing || Input.Department == Department.Patholodgy || Input.Department == Department.Rehabilitation || Input.Department == Department.Physical || Input.Department == Department.Technical || Input.Department == Department.Radiology)
-            {
-                user.Department = Department.IT;    
-                user.Department = Department.Porter;    
-                user.Department = Department.Management;
-                user.Department = Department.Theater;
-                user.Department = Department.Cleaner;
-                user.Department = Department.Admin;
-                user.Department = Department.Clinical;
-                user.Department = Department.Finanace;
-                user.Department = Department.HR;
-                user.Department = Department.Technical; 
-                user.Department = Department.Paramedical;
-                user.Department = Department.OPD;
-                user.Department = Department.Medical;
-                user.Department = Department.Nursing;   
-                user.Department = Department.Patholodgy;    
-                user.Department = Department.Rehabilitation;
-                user.Department = Department.Physical;
-                user.Department = Department.Technical;
-                user.Department = Department.Radiology;
-                await _userManager.UpdateAsync(user);
-            }
-
-            if (Request.Form.Files.Count > 0)
-            {
-                IFormFile file = Request.Form.Files.FirstOrDefault();
-                using (var dataStream = new MemoryStream())
+                if (Input.Position == Position.Doctor || Input.Position == Position.Porters || Input.Position == Position.Nurse || Input.Position == Position.Manager || Input.Position == Position.Finance || Input.Position == Position.Admin || Input.Position == Position.Cleaner || Input.Position == Position.HR || Input.Position == Position.IT || Input.Position == Position.Paramedics)
                 {
-                    await file.CopyToAsync(dataStream);
-                    user.Image = dataStream.ToString();
+                    user.Position = Position.Doctor;
+                    user.Position = Position.Porters;
+                    user.Position = Position.Nurse;
+                    user.Position = Position.Manager;
+                    user.Position = Position.Finance;
+                    user.Position = Position.Admin;
+                    user.Position = Position.Cleaner;
+                    user.Position = Position.HR;
+                    user.Position = Position.IT;
+                    user.Position = Position.Paramedics;
+                    await _userManager.UpdateAsync(user);
+                }
+            }
+
+            if(Input.Department == department)
+            {
+
+                if (Input.Department == Department.IT || Input.Department == Department.Porter || Input.Department == Department.Management || Input.Department == Department.Theater || Input.Department == Department.Cleaner || Input.Department == Department.Admin || Input.Department == Department.Clinical || Input.Department == Department.Finanace || Input.Department == Department.HR || Input.Department == Department.Technical || Input.Department == Department.Paramedical || Input.Department == Department.OPD || Input.Department == Department.Medical || Input.Department == Department.Nursing || Input.Department == Department.Patholodgy || Input.Department == Department.Rehabilitation || Input.Department == Department.Physical || Input.Department == Department.Technical || Input.Department == Department.Radiology)
+                {
+                    user.Department = Department.IT;
+                    user.Department = Department.Porter;
+                    user.Department = Department.Management;
+                    user.Department = Department.Theater;
+                    user.Department = Department.Cleaner;
+                    user.Department = Department.Admin;
+                    user.Department = Department.Clinical;
+                    user.Department = Department.Finanace;
+                    user.Department = Department.HR;
+                    user.Department = Department.Technical;
+                    user.Department = Department.Paramedical;
+                    user.Department = Department.OPD;
+                    user.Department = Department.Medical;
+                    user.Department = Department.Nursing;
+                    user.Department = Department.Patholodgy;
+                    user.Department = Department.Rehabilitation;
+                    user.Department = Department.Physical;
+                    user.Department = Department.Technical;
+                    user.Department = Department.Radiology;
+                    await _userManager.UpdateAsync(user);
+                }
+            }
+
+           if(Input.ContractType == contractType)
+            {
+                if (Input.ContractType == ContractType.Intern || Input.ContractType == ContractType.Temp_Contract || Input.ContractType == ContractType.Parmenent)
+                {
+                    user.ContractType = ContractType.Intern;
+                    user.ContractType = ContractType.Temp_Contract;
+                    user.ContractType = ContractType.Parmenent;
+                    await _userManager.UpdateAsync(user);
+                }
+            }
+
+            if(Input.Image == image)
+            {
+                string webRootPath = _environment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+
+                var imageFromDb = _context.ApplicationUsers.FirstOrDefault();
+                if(files.Count > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var upload = Path.Combine(webRootPath, @"Images\Registration");
+                    var extention = Path.GetExtension(files[0].FileName);
+
+                    var oldImageFromDb = Path.Combine(webRootPath, imageFromDb.Image.TrimStart('\\'));
+                    if (System.IO.File.Exists(oldImageFromDb))
+                    {
+                        System.IO.File.Delete(oldImageFromDb);
+                    }
+
+                    using (var fileStream = new FileStream(Path.Combine(upload, fileName + extention), FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+                    user.Image = @"\Images\Registration\" + fileName + extention;
                 }
                 await _userManager.UpdateAsync(user);
             }

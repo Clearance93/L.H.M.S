@@ -79,8 +79,11 @@ builder.Services.AddScoped<IInComplteRepository, InCompleteRepository>();
 builder.Services.AddScoped<IMaleWardRepository, MaleWardRepository>();
 builder.Services.AddScoped<IFemaleWardRepository, FemaleWardRepository>();
 builder.Services.AddScoped<IMetinityWardRepository, MetinityRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
+
+builder.Services.AddSignalR();
 
 //builder.Services.AddTransient<IEmailSender, ClinicalApp.EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
@@ -116,12 +119,14 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.MapRazorPages();    
+app.MapRazorPages();
+app.MapHub<ChatHub>("/chatHub");
 
 app.MapControllerRoute(
     name: "default",

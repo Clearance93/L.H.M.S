@@ -577,14 +577,8 @@ C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\MimeKi
 C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Twitter.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\DHTMLX.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\System.Web.Mvc.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\System.Web.Razor.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\System.Web.Helpers.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\System.Web.WebPages.dll
-C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\SendGrid.dll
 C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\StarkbankEcdsa.dll
 C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\SendGrid.SmtpApi.dll
+C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\libman.json
+C:\Users\clearancem\source\repos\ClinicalApp\ClinicalApp\bin\Debug\net6.0\Microsoft.AspNet.SignalR.Client.dll

@@ -204,9 +204,18 @@
    
 </style>
 
-
-
 <section class="header">
+    @if(ViewData["loggedIn"] != null){
+<div style="border-radius: 40px; background-color: green; color: #fff; height: 20px; width: 20px;">
+    @ViewData["loggedIn"]
+</div>
+}
+
+else{
+<div style="border-radius: 40px; background-color: red; color: #111; height: 20px; width: 20px;">
+    @ViewData["notLoggedIn"]
+</div>
+}
     <div class="home">
           <h1 class="text-danger">Local Biggest Hospital</h1>
             <p class="col-md-7 mb">Available 24/7 and we are just a call away incase of an emegency. We deliver the best service and care for our patient and make sure that our patient get the best treatment ever.</p>

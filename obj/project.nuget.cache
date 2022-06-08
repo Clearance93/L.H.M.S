@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "usmIVSlReSbgGEBFureYTaPlrHIrQfe/FGSRsrBMbHLLCHmEldniXKjQdeTlMJc+wsUUz0lbviVdFKRzP+ZX8w==",
+  "dgSpecHash": "q7N7EK/dLSG4UAk/9iksnsgVhHGuzmPYnnCcvy5JMkVI18ag9G++ezkPBgfy/Sl+7OhhGp3JjvXlJeRKb3/zEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\clearancem\\source\\repos\\ClinicalApp\\ClinicalApp\\ClinicalApp.csproj",
   "expectedPackageFiles": [
@@ -154,10 +154,10 @@
     "C:\\Users\\clearancem\\.nuget\\packages\\sendgrid\\9.28.0\\sendgrid.9.28.0.nupkg.sha512",
     "C:\\Users\\clearancem\\.nuget\\packages\\sendgrid.smtpapi\\1.4.6\\sendgrid.smtpapi.1.4.6.nupkg.sha512",
     "C:\\Users\\clearancem\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
-    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore\\6.3.1\\swashbuckle.aspnetcore.6.3.1.nupkg.sha512",
-    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
-    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
-    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.3.1\\swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512",
+    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore\\6.3.0\\swashbuckle.aspnetcore.6.3.0.nupkg.sha512",
+    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.0\\swashbuckle.aspnetcore.swagger.6.3.0.nupkg.sha512",
+    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.0\\swashbuckle.aspnetcore.swaggergen.6.3.0.nupkg.sha512",
+    "C:\\Users\\clearancem\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.3.0\\swashbuckle.aspnetcore.swaggerui.6.3.0.nupkg.sha512",
     "C:\\Users\\clearancem\\.nuget\\packages\\syncfusion.compression.net.core\\20.1.0.59\\syncfusion.compression.net.core.20.1.0.59.nupkg.sha512",
     "C:\\Users\\clearancem\\.nuget\\packages\\syncfusion.licensing\\20.1.0.59\\syncfusion.licensing.20.1.0.59.nupkg.sha512",
     "C:\\Users\\clearancem\\.nuget\\packages\\syncfusion.pdf.net.core\\20.1.0.59\\syncfusion.pdf.net.core.20.1.0.59.nupkg.sha512",

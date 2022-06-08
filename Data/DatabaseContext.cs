@@ -41,6 +41,9 @@ namespace ClinicalApp.Data
         public DbSet<ManWard> ManWards { get; set; }
         public DbSet<FemaleWard> FemaleWards { get; set; }
         public DbSet<MetinityWard> MetinityWards { get; set; }
+        public DbSet<Meds> Meds { get; set; }
+        public DbSet<MedsCollectionDetails> MedsCollectionDetails { get; set; }
+        public DbSet<MedsToBeCollected> MedssToBeCollected { get; set; }
     }
 
 }

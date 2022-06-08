@@ -483,6 +483,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhdGlvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MedsToBeCollected/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkc1RvQmVDb2xsZWN0ZWRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MedsToBeCollected/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkc1RvQmVDb2xsZWN0ZWRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MedsToBeCollected/Summary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkc1RvQmVDb2xsZWN0ZWRcU3VtbWFyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/MetinityWard/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWV0aW5pdHlXYXJkXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -617,6 +629,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Shared/_IsLogged.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Jc0xvZ2dlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/clearancem/source/repos/ClinicalApp/ClinicalApp/Views/Shared/_LoginPartial.cshtml]

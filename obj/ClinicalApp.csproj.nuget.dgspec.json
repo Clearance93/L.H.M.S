@@ -137,7 +137,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.3.1, )"
+              "version": "[6.3.0, )"
             },
             "Syncfusion.Pdf.Net.Core": {
               "target": "Package",

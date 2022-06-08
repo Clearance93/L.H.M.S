@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> _signedIn
+@*@inject UserManager<ApplicationUser> _userManager*@
+
+<ul class="navbar-nav">
+    @if (_signedIn.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <div style="border-radius: 40px; background-color: green; color: #fff; height: 25px; width: 25px;"><small>Online</small></div>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <div style="border-radius: 40px; background-color: red; color: #fff; height: 25px; width: 25px;"><small>Offline</small></div>
+        </li>
+    }
+</ul>

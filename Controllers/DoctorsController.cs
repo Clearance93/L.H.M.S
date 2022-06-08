@@ -31,6 +31,7 @@ namespace ClinicalApp.Controllers
         public async Task<IActionResult> Index()
         {
             List<Doctor> doctor = _doctor.GetAll();
+            ViewBag.Count = _context.Doctors.Count();
             return View(doctor);
         }
 

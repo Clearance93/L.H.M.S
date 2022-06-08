@@ -1,0 +1,20 @@
+﻿@model ClinicalApp.Models.MedsToBeCollected
+
+@{
+    ViewData["Title"] = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <h1>Summary</h1>
+    <div class="bg-dark text-light" style="padding: 25px;">Collection Summary Details</div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Pick up Details</h4>
+            Names: @Html.DisplayFor(model => model.FullNames)
+        </div>
+    </div>
+</div>

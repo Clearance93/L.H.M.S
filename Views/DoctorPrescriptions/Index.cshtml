@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ClinicalApp.Models.DoctorPrescription>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+
+<partial name="_Notification" />
+
+<form asp-action="Index" method="get">
+    <div class="form-action no-color">
+        <p class="search">
+            <input type="text" name="SearchString" class="names" value="@ViewData["CurrentFilter"]" placeholder="Search by First Name or Last Name" />
+            <input type="submit" value="Search" class="btn btn-outline-secondary" />
+            <a asp-action="Index" class="btn btn-outline-danger">Back to the full list</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Doctor First Name
+            </th>
+            <th>
+                Doctor Last Name
+            </th>
+            <th>
+                Doctor's Email Address
+            </th>
+            <th>
+                Doctor's Home Address
+            </th>
+            <th>
+                Doctor's Phone Number
+            </th>
+            <th>
+                Doctor's Department
+            </th>
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Frequency
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorDepartmetment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Frequency)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pen-fill"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-card-text"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

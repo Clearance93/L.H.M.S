@@ -1,0 +1,341 @@
+﻿@model IEnumerable<ClinicalApp.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    #ControlRegion{
+        background-color: lightblue;
+        padding-left: 66px;
+        padding-top: 25px;
+        padding-bottom: 15px;
+    }
+
+    .clinic{
+        background-image: url("https://albertonrecord.co.za/wp-content/uploads/sites/35/2022/03/exteriornetcareal_12390.jpg");
+        background-size: cover;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .align-items-start{
+        margin-top: 350px;
+    }
+
+    .Bit{
+        margin-left: 75px;
+        margin-right: 80px;
+    }
+
+    h1{
+        text-align: center; 
+    }
+
+    .space{
+        margin: 0 15%;
+        color: red;
+        font-weight: 800;
+    }
+
+    h1{
+        color: #4481C4;
+        font-family:'Times New Roman', Times, serif;
+        font-size: 3.3rem;
+        font-weight: 700;
+    }
+
+    .names{
+        border: 2px solid orangered;
+        border-radius: 25px;
+        padding: 10px;
+        box-shadow: 5px 10px 15px maroon;
+        margin-right: 25px;
+    }
+
+    .search{
+        margin-left: 5%;
+    }
+
+    .searching{
+         box-shadow: 5px 10px 15px maroon;
+    }
+
+    
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 80px;
+        z-index: 99;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    #navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo{
+        font-size: 2.3rem;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #navbar li{
+        list-style: none;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .logo:hover{
+        color: maroon;
+    }
+
+    #navbar li a {
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #fff;
+        transition: 0.3s ease;
+    }
+    #navbar li a:hover,
+    #navbar li a.active{
+        color: maroon;
+    }
+
+
+    #navbar li a:hover::after,
+    #navbar li a.active::after{
+        content: "";
+        width: 30%;
+        height: 3px;
+        background-color: maroon;
+        position: absolute;
+        bottom: -5px;
+        left: 20px;
+    }
+<style>
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+    margin-top: -1%;
+}
+</style>
+
+
+ <div class="grids">
+     <div>
+         <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 100%;">
+    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
+      <br /> 
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light">
+          Home
+        </a>
+      </li>
+     </ul>
+      <ul class="btn-toggle-nav text-dark list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-light rounded"><i class="bi bi-people-fill"></i>&nbsp;&nbsp;Employees</a></li>
+            <li><a asp-controller="Patient" asp-action="Index" class="link-light rounded"><i class="bi bi-hospital"></i>&nbsp;&nbsp;Patients</a></li>
+            <li><a asp-controller="Chronic_Desease" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication in hospital</a></li>
+            
+
+            <li><a asp-controller="Paramedic" asp-action="Index" class="link-light rounded"><i class="fas fa-ambulance"></i>&nbsp;&nbsp;Paramedics</a></li>
+            <li><a asp-controller="Doctors" asp-action="Index"  class="link-light rounded"><i class="fas fa-user-md"></i>&nbsp;&nbsp;Doctors</a></li>
+            <li><a asp-controller="Admin" asp-action="Index"  class="link-light rounded"><i class="bi bi-person-workspace"></i>&nbsp;&nbsp;Admin</a></li>
+            <li><a asp-controller="IT" asp-action="Index" class="link-light rounded"><i class="bi bi-laptop"></i>&nbsp;&nbsp;IT</a></li>
+            <li><a asp-controller="HR" asp-action="Index" class="link-light rounded"><i class="bi bi-person-check-fill"></i>&nbsp;&nbsp;HR</a></li>
+             <li><a asp-controller="Clearner" asp-action="" class="link-light rounded"><i class="fas fa-hands-wash"></i>&nbsp;&nbsp;Cleaner</a></li>
+            <li><a asp-controller="Nurse" asp-action="Index" class="link-light rounded"><i class="fas fa-user-nurse"></i>&nbsp;&nbsp;Nurses</a></li>
+            <li><a asp-controller="Doctors" asp-action="Create" class="link-light rounded"><i class="fas fa-user-plus"></i>&nbsp;&nbsp;Add a Doctor</a></li>
+            <li><a asp-controller="Finance" asp-action="Index" class="link-light rounded"><i class="bi bi-cash-coin"></i>&nbsp;&nbsp;Finance</a></li>
+            <li><a asp-controller="Manager" asp-action="Index" class="link-light rounded"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Management</a></li>
+            <li><a asp-controller="Porter" asp-action="Index" class="link-light rounded"><i class="fa-solid fa-skull-crossbones"></i>&nbsp;&nbsp;Porter</a></li>
+
+            <li><a asp-controller="P_Hospital" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication of hospital</a></li>
+            <li><a asp-controller="InComplete" asp-action="Index" class="link-light rounded"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Patientwho didnt complete treatment</a></li>
+            <li><a asp-controller="PickUpMeds" asp-action="Index" class="link-light rounded"><i class="bi bi-collection-fill"></i>&nbsp;&nbsp;Collection</a></li>
+             <li><a asp-controller="MaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-male"></i>&nbsp;&nbsp;Male Ward</a></li>
+            <li><a asp-controller="FemaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-female"></i>&nbsp;&nbsp;Female Ward</a></li>
+            <li><a asp-controller="MetinityWard" asp-action="Index" class="link-light rounded"><i class="fas fa-baby"></i>&nbsp;&nbsp;Metinity Ward</a></li>
+           
+             
+
+       
+      <li class="border-top my-3"></li>
+   
+    </ul>
+  </div>
+     </div>
+
+<div class="container">
+
+<div>
+<a asp-action="Create" class="btn btn-dark">Add Doctor</a>
+<table id="example" class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr class="bg-dark text-light">
+            <th>
+                <h5>Doctor's Id</h5>
+            </th>
+            <th>
+               <h5>First Name</h5>
+
+            </th>
+            <th>
+                <h5>Last Name</h5>
+            </th>
+            <th>
+                <h5>Email</h5>
+            </th>
+            <th>
+                <h5>Address</h5>
+            </th>
+            <th>
+                <h5>Phone Number</h5>
+            </th>
+            <th>
+                <h5>Department</h5>
+            </th>
+            <th>
+                <h5>image</h5>
+            </th>
+            <th><h5>Action</h5></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelitem => item.DoctorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorLastName)
+            </td>
+            <td>
+                <a href="mailto:@Html.DisplayFor(modelItem => item.DoctorEmail)">@Html.DisplayFor(modelItem => item.DoctorEmail)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorDepartmetment)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.Image)" style="width: 125px; height:85px;"/>
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@item.DoctorId"><i class="bi bi-pen-fill"></i></a> |
+                <a asp-action="Details" class="btn btn-outline-success" asp-route-id="@item.DoctorId"><i class="bi bi-card-text"></i></a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.DoctorId"><i class="bi bi-trash3-fill"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+Number of doctors in our hospital are: @ViewBag.Count
+</div>
+
+
+@section Scripts{
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
+ <script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+ </script>
+}

@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "microsoft/signair@latest",
+      "destination": "wwwroot/js/microsoft/signair/"
+    }
+  ]
+}

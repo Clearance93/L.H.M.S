@@ -1,0 +1,48 @@
+﻿@*
+@{
+    ViewData["Title"] = "Online Stuff News";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            Receiver
+        </div>
+        <div class="col-4">
+            @Html.DropDownList("receiver", @Model.Users, "All")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Message
+        </div>
+        <div class="col-4">
+            <input type="text" xid="message" />
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-2">
+            Message
+        </div>
+        <div class="col-4">
+            <input type="text" id="message" />
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-6">
+            <input type="button" id="SendMessage" value="Send Message" />
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-6">
+            <ul id="messageList"></ul>
+        </div>
+    </div>
+</div>
+
+@Html.Hidden("sender", @Model.MyUser)
+
+@section Scripts {
+    <script src="~/js/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js" asp-append-version="true"></script>
+}*@

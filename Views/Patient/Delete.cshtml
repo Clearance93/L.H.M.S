@@ -1,0 +1,452 @@
+﻿@model ClinicalApp.Models.Patient        
+
+<style>
+    h1 {
+        font-family:'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-size: 2.4em;
+        color: maroon;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    h5{
+          font-family:'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-size: 1.5em;
+        color: maroon;
+    }
+
+    .details{
+        flex-basis: 42%;
+        border-radius: 15px;
+        margin-bottom: 42px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .layer{
+        background: transparent;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.8s;
+    }
+
+    .layer:hover{
+        background: rgba(336,20,0,0.5)
+    }
+
+    h2{
+        color: #fff;
+    }
+
+    .layer h2{
+         width: 100%;
+        font-weight: 500;
+        color: #fff;
+        font-size: 26px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .layer:hover h2{
+        opacity: 1;
+        bottom: 50%;
+        text-align: center;
+    }
+    .grids{
+        display: flex;
+    }
+
+    .header{
+        text-align: center;
+        margin-top: -30%;
+    }
+
+    .header h1{
+        margin-left: 25%;
+    }
+
+    .dict{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    b{
+        font-size: 1.5rem;
+        text-shadow: 10px 15px 10px maroon;
+        box-shadow: 10px 15px 10px orangered;
+        margin-left: 125px;
+    }
+
+    .u{
+        box-shadow: 7px 5px 8px lightblue;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-left: 25px;
+    }
+
+    .us{
+        margin-left: 10%;
+    }
+
+    input{
+        margin-left: 35px;
+        margin-top: 15px;
+    }
+
+    span{
+        border: 2px dotted orangered;
+        border-radius: 12px;
+        padding: 3px;
+    }
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+}
+
+
+
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+}
+
+</style>
+
+
+ <div class="grids">
+     <div>
+         <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 100%;">
+    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
+      <br /> 
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light">
+          Home
+        </a>
+      </li>
+     </ul>
+      <ul class="btn-toggle-nav text-dark list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-light rounded"><i class="bi bi-people-fill"></i>&nbsp;&nbsp;Employees</a></li>
+            <li><a asp-controller="Patient" asp-action="Index" class="link-light rounded"><i class="bi bi-hospital"></i>&nbsp;&nbsp;Patients</a></li>
+            <li><a asp-controller="Chronic_Desease" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication in hospital</a></li>
+            
+
+            <li><a asp-controller="Paramedic" asp-action="Index" class="link-light rounded"><i class="fas fa-ambulance"></i>&nbsp;&nbsp;Paramedics</a></li>
+            <li><a asp-controller="Doctors" asp-action="Index"  class="link-light rounded"><i class="fas fa-user-md"></i>&nbsp;&nbsp;Doctors</a></li>
+            <li><a asp-controller="Admin" asp-action="Index"  class="link-light rounded"><i class="bi bi-person-workspace"></i>&nbsp;&nbsp;Admin</a></li>
+            <li><a asp-controller="IT" asp-action="Index" class="link-light rounded"><i class="bi bi-laptop"></i>&nbsp;&nbsp;IT</a></li>
+            <li><a asp-controller="HR" asp-action="Index" class="link-light rounded"><i class="bi bi-person-check-fill"></i>&nbsp;&nbsp;HR</a></li>
+             <li><a asp-controller="Clearner" asp-action="" class="link-light rounded"><i class="fas fa-hands-wash"></i>&nbsp;&nbsp;Cleaner</a></li>
+            <li><a asp-controller="Nurse" asp-action="Index" class="link-light rounded"><i class="fas fa-user-nurse"></i>&nbsp;&nbsp;Nurses</a></li>
+            <li><a asp-controller="Doctors" asp-action="Create" class="link-light rounded"><i class="fas fa-user-plus"></i>&nbsp;&nbsp;Add a Doctor</a></li>
+            <li><a asp-controller="Finance" asp-action="Index" class="link-light rounded"><i class="bi bi-cash-coin"></i>&nbsp;&nbsp;Finance</a></li>
+            <li><a asp-controller="Manager" asp-action="Index" class="link-light rounded"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Management</a></li>
+            <li><a asp-controller="Porter" asp-action="Index" class="link-light rounded"><i class="fa-solid fa-skull-crossbones"></i>&nbsp;&nbsp;Porter</a></li>
+
+            <li><a asp-controller="P_Hospital" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication of hospital</a></li>
+            <li><a asp-controller="InComplete" asp-action="Index" class="link-light rounded"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Patientwho didnt complete treatment</a></li>
+            <li><a asp-controller="PickUpMeds" asp-action="Index" class="link-light rounded"><i class="bi bi-collection-fill"></i>&nbsp;&nbsp;Collection</a></li>
+             <li><a asp-controller="MaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-male"></i>&nbsp;&nbsp;Male Ward</a></li>
+            <li><a asp-controller="FemaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-female"></i>&nbsp;&nbsp;Female Ward</a></li>
+            <li><a asp-controller="MetinityWard" asp-action="Index" class="link-light rounded"><i class="fas fa-baby"></i>&nbsp;&nbsp;Metinity Ward</a></li>
+           
+             
+
+       
+      <li class="border-top my-3"></li>
+     @* <li class="mb-1">
+        <button class="btn btn-toggle align-items-center bg-danger text-light rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-light rounded">Profile</a></li>
+            <li><a href="#" class="link-light rounded">Settings</a></li>
+            <li><partial name="_LoginPartial" /></li>
+          </ul>
+        </div>
+      </li>*@
+    </ul>
+  </div>
+     </div>
+
+
+     <div class="container-md">
+     <h1><u>YOU WILL BE DELETING : <span>@Html.DisplayFor(model => model.PatientFirstName) @Html.DisplayFor(model => model.PatientLastName)</span></u> INFORMATION</h1>
+     <hr style="border: 2px dotted red;"/>
+    <header>
+		<hr id="thread1">
+		<hr id="thread2">
+		<hr id="thread3" class="right">
+		<hr id="thread4">
+		<hr id="thread5" class="right">
+		<hr id="thread6">
+</header>
+   <div class="row">
+       <div class="col-md-4">
+            <div class="details">
+        <div class="grids">
+            <div>
+        <div class="layer">
+        </div>
+        </div>
+         </div>
+       </div>
+       </div>
+       <br /><br /><br /><br />
+     <div class="header">
+        <u>
+            <h1>@Html.DisplayFor(model => model.PatientFirstName) @Html.DisplayFor(model => model.PatientLastName)</h1>
+        </u>
+                        <h5>Identification</h5>
+             <b class="text-danger">@Html.DisplayNameFor(model => model.PatientId)</b>
+             <u class="u us">@Html.DisplayFor(model => model.PatientId)</u> 
+      </div>
+   </div>
+   <br /><br />
+
+
+<div class="container">
+    <div class="divide">
+       <div>
+            <u>
+            <h1>@Html.DisplayFor(model => model.PatientFirstName) @Html.DisplayFor(model => model.PatientLastName)</h1>
+        </u>
+                        <h5 style="text-align: center;"><u>Personal Information</u></h5>
+                        <br /><br />
+            <div class="row">
+                <div class="col-md-6">
+                     <b class="text-danger" style="margin-left: -5%;">@Html.DisplayNameFor(model => model.PatientId)</b>
+                     <u class="u us">@Html.DisplayFor(model => model.PatientId)</u> <br />
+                     <b class="text-danger" style="margin-left: -5%;">@Html.DisplayNameFor(model => model.PatientFirstName)</b>
+                     <u class="u us">@Html.DisplayFor(model => model.PatientFirstName)</u>
+                </div>
+                <div class="col-md-6">
+                    <b class="text-danger">@Html.DisplayNameFor(model => model.PatientLastName)</b>
+                     <u class="u us">@Html.DisplayFor(model => model.PatientLastName)</u>
+                     <b class="text-danger">@Html.DisplayNameFor(model => model.BirthId)</b>
+                     <u class="u us">@Html.DisplayFor(model => model.BirthId)</u> <br />
+                </div>
+                <br /><br />
+                <hr /><hr />
+                <br /><br />
+                <div class="col-md-8" style="text-align: center;">
+                    <b class="text-danger">@Html.DisplayNameFor(model => model.DateOfBirth)</b>
+                    <u class="u us">@Html.DisplayFor(model => model.DateOfBirth)</u>
+                </div>
+            </div>
+           <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 10px 15px;">
+          Delete
+        </button>
+
+
+        <div>
+        <div class="container">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-image: url('https://www.westend61.de/images/0000955703pw/patient-in-hospital-bed-taking-selfie-with-doctors-and-nurses-CUF14045.jpg'); background-size: cover;">
+  <div class="modal-dialog" style="margin-top: 10%">
+    <div class="modal-content" style="background-color: #D8E1E4;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Patient Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+ 
+      <div class="modal-body" style="padding: 5%">
+          <div class="row text-light" style="background-color: maroon;">
+    <div class="col-md-12">
+       Are you sure you want to delete this record of <h4><i><b><u>@Html.DisplayFor(model => model.PatientFirstName) @Html.DisplayFor(model => model.PatientLastName)</u></b></i></h4>
+    </div>
+</div>
+ <form asp-action="Delete">
+       <input type="hidden" asp-for="PatientId" />
+       <input type="submit" value="Delete" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 10px 15px;"/> 
+ </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+    </div>
+   <a asp-action="Index" class="btn btn-danger form-control">Back</a>
+</div>
+</div>
+
+
+
+
+

@@ -1,0 +1,460 @@
+﻿@model ClinicalApp.Models.Patient
+
+<style>
+
+     .top{
+        background-image:linear-gradient(rgba(13, 202, 240, 0.5), rgba(13, 202, 240, 0.5)), url("https://www.scripps.org/sparkle-assets/seo_thumbnails/news_items/6473/facebook-437f97cdb8e096c0ce61654b167311f7.jpg");
+        background-size: cover;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .test{
+        padding: 10%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .row{
+      margin: 0 10%;
+      margin-top: 5%;
+    }
+
+    h2{
+        font-family:'Times New Roman', Times, serif;
+        margin-top: -10%;
+        border: 1px solid red;
+        background: maroon;
+    }
+
+    
+small{
+    color: blue;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  pointer-events: none;
+  fill: currentColor;
+}
+
+.dropdown-toggle { outline: 0; }
+
+.nav-flush .nav-link {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+
+.btn-toggle-nav a {
+  display: inline-flex;
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.fw-semibold { font-weight: 600; }
+.lh-tight { line-height: 1.25; }
+
+img{
+    height: 125px;
+    width: 125px;
+    border-radius: 50px;
+}
+
+.grids{
+    display: flex;
+}
+
+.para{
+    text-align: center;
+    border: 2px dotted red;
+    box-shadow: 25px 23px 27px maroon;
+     width: 100%;
+      height: 100%;
+      background-color: red;
+      animation-name: example;
+      animation-duration: 10s;
+      position: relative;
+      animation-iteration-count: 30;
+      animation-direction: alternate;
+}
+
+</style>
+
+
+ <div class="grids">
+     <div>
+         <div class="flex-shrink-0 p-3 bg-dark" style="width: 280px; height: 100%;">
+    <a asp-controller="Home" asp-action="Index" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+      <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold btn btn-success">L.H.M.S</span>
+      <br /> 
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light">
+          Home
+        </a>
+      </li>
+     </ul>
+      <ul class="btn-toggle-nav text-dark list-unstyled fw-normal pb-1 small">
+            <li><a asp-controller="UserRole" asp-action="Index" class="link-light rounded"><i class="bi bi-people-fill"></i>&nbsp;&nbsp;Employees</a></li>
+            <li><a asp-controller="Patient" asp-action="Index" class="link-light rounded"><i class="bi bi-hospital"></i>&nbsp;&nbsp;Patients</a></li>
+            <li><a asp-controller="Chronic_Desease" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication in hospital</a></li>
+            
+
+            <li><a asp-controller="Paramedic" asp-action="Index" class="link-light rounded"><i class="fas fa-ambulance"></i>&nbsp;&nbsp;Paramedics</a></li>
+            <li><a asp-controller="Doctors" asp-action="Index"  class="link-light rounded"><i class="fas fa-user-md"></i>&nbsp;&nbsp;Doctors</a></li>
+            <li><a asp-controller="Admin" asp-action="Index"  class="link-light rounded"><i class="bi bi-person-workspace"></i>&nbsp;&nbsp;Admin</a></li>
+            <li><a asp-controller="IT" asp-action="Index" class="link-light rounded"><i class="bi bi-laptop"></i>&nbsp;&nbsp;IT</a></li>
+            <li><a asp-controller="HR" asp-action="Index" class="link-light rounded"><i class="bi bi-person-check-fill"></i>&nbsp;&nbsp;HR</a></li>
+             <li><a asp-controller="Clearner" asp-action="" class="link-light rounded"><i class="fas fa-hands-wash"></i>&nbsp;&nbsp;Cleaner</a></li>
+            <li><a asp-controller="Nurse" asp-action="Index" class="link-light rounded"><i class="fas fa-user-nurse"></i>&nbsp;&nbsp;Nurses</a></li>
+            <li><a asp-controller="Doctors" asp-action="Create" class="link-light rounded"><i class="fas fa-user-plus"></i>&nbsp;&nbsp;Add a Doctor</a></li>
+            <li><a asp-controller="Finance" asp-action="Index" class="link-light rounded"><i class="bi bi-cash-coin"></i>&nbsp;&nbsp;Finance</a></li>
+            <li><a asp-controller="Manager" asp-action="Index" class="link-light rounded"><i class="bi bi-list-task"></i>&nbsp;&nbsp;Management</a></li>
+            <li><a asp-controller="Porter" asp-action="Index" class="link-light rounded"><i class="fa-solid fa-skull-crossbones"></i>&nbsp;&nbsp;Porter</a></li>
+
+            <li><a asp-controller="P_Hospital" asp-action="Index" class="link-light rounded"><i class="fa fa-bed"></i>&nbsp;&nbsp;Patient on merdication of hospital</a></li>
+            <li><a asp-controller="InComplete" asp-action="Index" class="link-light rounded"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp;&nbsp;Patientwho didnt complete treatment</a></li>
+            <li><a asp-controller="PickUpMeds" asp-action="Index" class="link-light rounded"><i class="bi bi-collection-fill"></i>&nbsp;&nbsp;Collection</a></li>
+             <li><a asp-controller="MaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-male"></i>&nbsp;&nbsp;Male Ward</a></li>
+            <li><a asp-controller="FemaleWards" asp-action="Index" class="link-light rounded"><i class="fas fa-female"></i>&nbsp;&nbsp;Female Ward</a></li>
+            <li><a asp-controller="MetinityWard" asp-action="Index" class="link-light rounded"><i class="fas fa-baby"></i>&nbsp;&nbsp;Metinity Ward</a></li>
+           
+             
+
+       
+      <li class="border-top my-3"></li>
+     @* <li class="mb-1">
+        <button class="btn btn-toggle align-items-center bg-danger text-light rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-light rounded">Profile</a></li>
+            <li><a href="#" class="link-light rounded">Settings</a></li>
+            <li><partial name="_LoginPartial" /></li>
+          </ul>
+        </div>
+      </li>*@
+    </ul>
+  </div>
+     </div>
+
+
+     <div class="top">
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin: 20px 15px;">
+          Edit 
+        </button>
+    <div class="test">
+        <div class="space col-md-12" style="margin-right: 25px;">
+          <h2 style="padding: 15px; text-align: right; color: red;" class="text-danger bg-info"><small><u>Edit page file for: </u></small><br />@Html.DisplayFor(model => model.PatientFirstName) @Html.DisplayFor(model => model.PatientLastName)</h2>
+          <p style="padding: 15px;" class="para">Please do double check if you have selected the right file before you continue editing and please check if the name is the name of the one of our doctor or you are that doctor.</p>
+          <p></p>
+          </a>
+        </div>
+          <div class="space col-md-12" style="margin-left: 25px;">
+          <h2 style="padding: 15px;" class="text-danger"><select asp-for="DoctorId" disabled asp-items="ViewBag.DoctorId"></select></h2>
+         
+          <p></p>
+          </a>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-image: url('https://www.vennershipley.co.uk/wp-content/uploads/2019/01/shutterstock_551914228-2.jpg'); background-size: cover;">
+  <div class="modal-dialog" style="margin-top: 10%">
+    <div class="modal-content" style="background-color: #D8E1E4;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">@Html.DisplayFor(model => model.PatientFirstName) @Html.DisplayFor(model => model.PatientLastName) Edit Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+ 
+      <div class="modal-body" style="padding: 5%">
+          <div class="row text-light" style="background-color: maroon;">
+    <div class="col-md-12">
+          <form asp-action="Edit">
+                                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                    <input type="hidden" asp-for="PatientId" />
+
+                                                     <div class="form-group">
+                <label asp-for="DoctorId" class="control-label"></label>
+                <select asp-for="DoctorId" class ="form-control" asp-items="ViewBag.DoctorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientFirstName" class="control-label"></label>
+                <input asp-for="PatientFirstName" class="form-control" />
+                <span asp-validation-for="PatientFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientLastName" class="control-label"></label>
+                <input asp-for="PatientLastName" class="form-control" />
+                <span asp-validation-for="PatientLastName" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="BirthId" class="control-label"></label>
+                <input asp-for="BirthId" class="form-control" />
+                <span asp-validation-for="BirthId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNumber" class="control-label"></label>
+                <input asp-for="ContactNumber" type="number" class="form-control" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" type="email" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="HomeAddress" class="control-label"></label>
+                <textarea asp-for="HomeAddress" class="form-control"></textarea>
+                <span asp-validation-for="HomeAddress" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Sex" class="control-label"></label>
+                <input asp-for="Sex" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Ethnicity" class="control-label"></label>
+                <input asp-for="Ethnicity" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="Ethnicity" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="AdmittedFor" class="control-label"></label>
+                <input asp-for="AdmittedFor" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="AdmittedFor" class="text-danger"></span>
+            </div>
+            <label>Foreign check the box</label>
+             <input type="checkbox" onclick="showhideInput()" id="foreign" name="foreign" value="yes" />
+             <div id="foreignInfo">
+             <div class="form-group">
+                <label asp-for="PassportNumber" class="control-label"></label>
+                <input asp-for="PassportNumber" class="form-control" />
+                <span asp-validation-for="PassportNumber" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="ReasonForVisitation" class="control-label"></label>
+                <input asp-for="ReasonForVisitation" class="form-control" />
+                <span asp-validation-for="ReasonForVisitation" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="DurationOfVisitation" class="control-label"></label>
+                <input asp-for="DurationOfVisitation" class="form-control" />
+                <span asp-validation-for="DurationOfVisitation" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="form-group">
+                <label asp-for="AdmitStatus" class="control-label"></label>
+                <input asp-for="AdmitStatus" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="AdmitStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Ward_Name" class="control-label"></label>
+                <input asp-for="Ward_Name" class="form-control" />
+                <span asp-validation-for="Ward_Name" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="DateOfAdmition" class="control-label"></label>
+                <input asp-for="DateOfAdmition" class="form-control" />
+                <span asp-validation-for="DateOfAdmition" class="text-danger"></span>
+            </div>
+            <label>To discharge the patient, check the box and select the date</label>
+            <input type="checkbox" onclick="patientDischarge()" id="discharge" name="discharge" value="no" />
+            <div id="discharging">
+                 <div class="form-group">
+                <label asp-for="DateOfDischarge" class="control-label"></label>
+                <input asp-for="DateOfDischarge" class="form-control" />
+                <span asp-validation-for="DateOfDischarge" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="BenefitOfTreatment" class="control-label"></label>
+                <input asp-for="BenefitOfTreatment" class="form-control" />
+                <span asp-validation-for="BenefitOfTreatment" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="RiskOfTreatment" class="control-label"></label>
+                <input asp-for="RiskOfTreatment" class="form-control" />
+                <span asp-validation-for="RiskOfTreatment" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="StartOfTreatment" class="control-label"></label>
+                <input asp-for="StartOfTreatment" class="form-control" />
+                <span asp-validation-for="StartOfTreatment" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="EndOfTreatment" class="control-label"></label>
+                <input asp-for="EndOfTreatment" class="form-control" />
+                <span asp-validation-for="EndOfTreatment" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="PatientStatus" class="control-label"></label>
+                <select asp-for="PatientStatus" asp-items="Html.GetEnumSelectList<PatientStatus>()" class="form-control" ></select>
+                <span asp-validation-for="PatientStatus" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Infection" class="control-label"></label>
+                <select asp-for="Infection" asp-items="Html.GetEnumSelectList<Infection>()" class="form-control" ></select>
+                <span asp-validation-for="Infection" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Illness" class="control-label"></label>
+                <select asp-for="Illness" asp-items="Html.GetEnumSelectList<Illness>()" class="form-control" ></select>
+                <span asp-validation-for="Illness" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="RecoveryChances" class="control-label"></label>
+                <select asp-for="RecoveryChances" asp-items="Html.GetEnumSelectList<RecoveryChances>()" class="form-control" ></select>
+                <span asp-validation-for="RecoveryChances" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="RecommendedTreatment" class="control-label"></label>
+                <input asp-for="RecommendedTreatment" class="form-control" />
+                <span asp-validation-for="RecommendedTreatment" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="SuucessOfRecoveryIftreatmentTaken" class="control-label"></label>
+                <select asp-for="SuucessOfRecoveryIftreatmentTaken" asp-items="Html.GetEnumSelectList<SuucessOfRecoveryIftreatmentTaken>()" class="form-control" ></select>
+                <span asp-validation-for="SuucessOfRecoveryIftreatmentTaken" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="TreeatmentStatus" class="control-label"></label>
+                <input asp-for="TreeatmentStatus" placeholder="Incomplete or On Medication or Completed" class="form-control" />
+                <span asp-validation-for="TreeatmentStatus" class="text-danger"></span>
+            </div>
+            <hr style="border: 2px solid red;"/>
+
+            <h4><i><u>Next Of kin Information</u></i></h4>
+
+             <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="P_EmailAddress" class="control-label"></label>
+                <input asp-for="P_EmailAddress" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="P_EmailAddress" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="CellNo" class="control-label"></label>
+                <input asp-for="CellNo" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="CellNo" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="RealtionshipToThePatient" class="control-label"></label>
+                <input asp-for="RealtionshipToThePatient" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="RealtionshipToThePatient" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="WorkEmailAddress" class="control-label"></label>
+                <input asp-for="WorkEmailAddress" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="WorkEmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" placeholder="New York" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="WorkNumber" class="control-label"></label>
+                <input asp-for="WorkNumber" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="WorkNumber" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="HomeNumber" class="control-label"></label>
+                <input asp-for="HomeNumber" placeholder="Admiited or Discharged" class="form-control" />
+                <span asp-validation-for="HomeNumber" class="text-danger"></span>
+            </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                                    </div>
+                                                </form>
+    </div>
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+

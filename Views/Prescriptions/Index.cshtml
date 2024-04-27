@@ -1,0 +1,166 @@
+﻿@model IEnumerable<ClinicalApp.Models.Prescription>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    #ControlRegion{
+        background-color: lightblue;
+        padding-left: 66px;
+        padding-top: 25px;
+        padding-bottom: 15px;
+    }
+
+    .clinical{
+        background-image: url("https://www.banyantreatmentcenter.com/wp-content/uploads/2021/07/causes-of-prescription-drug-abuse.gif");
+        background-size: cover;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .align-items-start{
+        margin-top: 350px;
+    }
+
+    .Bit{
+        margin-left: 75px;
+        margin-right: 80px;
+    }
+
+    h1{
+        text-align: center; 
+    }
+
+    .space{
+        margin: 0 15%;
+        color: red;
+        font-weight: 800;
+    }
+
+    h1{
+        color: #4481C4;
+        font-family:'Times New Roman', Times, serif;
+        font-size: 3.3rem;
+        font-weight: 700;
+    }
+
+    .names{
+        border: 2px solid orangered;
+        border-radius: 25px;
+        padding: 10px;
+        box-shadow: 5px 10px 15px maroon;
+        margin-right: 25px;
+    }
+
+    .search{
+        margin-left: 5%;
+    }
+
+    .searching{
+         box-shadow: 5px 10px 15px maroon;
+    }
+
+    
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 80px;
+        z-index: 99;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    #navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo{
+        font-size: 2.3rem;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #navbar li{
+        list-style: none;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .logo:hover{
+        color: maroon;
+    }
+
+    #navbar li a {
+        text-decoration: none;
+        font-size: 1.5em;
+        font-weight: 700;
+        color: yellow;
+        transition: 0.3s ease;
+    }
+    #navbar li a:hover,
+    #navbar li a.active{
+        color: maroon;
+    }
+
+
+    #navbar li a:hover::after,
+    #navbar li a.active::after{
+        content: "";
+        width: 30%;
+        height: 3px;
+        background-color: maroon;
+        position: absolute;
+        bottom: -5px;
+        left: 20px;
+    }
+
+</style>
+
+ <partial name="_Notification" />
+
+   <div class="clinical">
+   </div>
+
+  
+   <a asp-action="Create" class="btn btn-success">Add a Prescription</a>
+<table id="myTable" class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr style="background-color: maroon; color: #fff">
+            <th>
+                <h5>Patient Name</h5>
+            </th>
+            <th>
+                <h5>Amount</h5>
+            </th>
+            <th>
+                <h5>Frequency</h5>
+            </th>
+            <th><h5>Action</h5></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Frequency)
+            </td>
+            <td>
+                <a asp-action="Edit" class="" class="btn btn-outline-Info" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" class="btn btn-outline-danger" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="btn btn-dark" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,200 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Local Hospital Management";
+}
+
+<style>
+    .title{
+        font-family:'Times New Roman', Times, serif;
+        text-align: center;
+        margin-bottom: 55px;
+    }
+
+    form{
+        margin-left: 10%;
+    }
+
+    .form-floating{
+        border: 2px double blue;
+        margin: 10px 0;
+        box-shadow: 25px -15px 20px lightblue;
+    }
+
+    h1{
+        text-shadow: 10px 15px 20px maroon;
+    }
+
+    button{
+        box-shadow: 10px -15px 22px maroon;
+    }
+
+    button:hover{
+        box-shadow: -10px -15px 22px blue;
+    }
+
+    .container{
+        background-image: url("https://www.wwetfs.com/image/finance.gif");
+    }
+
+    .eye{
+        position: absolute;
+        margin-left: 80%;
+    }
+
+    #hidden{
+        display: none;
+    }
+
+    .collapse{
+        display: none
+    }
+
+    #load, #but{
+        display:  none;
+    }
+
+</style>
+
+<div class="container">
+    <h1 class="title">@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <br />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                     <span class="eye" onclick="myFunction()">
+                        <i id="hide" class="bi bi-eye-slash"></i>
+                        <i id="hidden" class="bi bi-eye-fill"></i>
+                    </span>
+                    <input asp-for="Input.Password" class="form-control" id="myInput" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="Input.Password" type="password" class="form-label"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div>
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <button id="login-submit btnCall" onclick="load()" name="SaveSelectedUser" type="submit"  class="w-100 btn btn-lg btn-primary"><i class="fa fa-spinner fa-pulse" id="load"></i><p id="log">Log in</p></button>
+                </div>
+                <div id="Fade_area" class="overlay"></div>
+                <div id="myModal" class="popup">
+                    <partial name="_Popup" />
+                </div>
+                <div>
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword" class="btn btn-outline-info">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-outline-primary">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="btn btn-outline-success">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>
+           <div class="progress collapse" id="loading">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info text-white" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%; height: 100%;">
+                    <span style="font-size: 2rem;">Loading...</span>
+                </div>
+           </div>
+            <div class="col-md-12">
+                <div class="alert-success alert-success alert-dismissible collapse text-center" style="font-size: 2rem" role="alert">
+                    Logged in successfully
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+           @* <h3>Use another service to log in.</h3>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                            about setting up this ASP.NET application to support logging in via external services</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }*@
+            @*<img src="https://financeadvisoras.com/assets/images/secure-login.gif" />*@
+            @*<img src="https://www.wwetfs.com/image/finance.gif" />*@
+        </section>
+    </div>
+    <button class="btn btn-primary" type="button" id="but" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  <span class="sr-only">Loading...</span>
+  Loading
+</button>
+</div>
+
+@section Scripts {
+    <script>
+        function myFunction(){
+            var x = document.getElementById("myInput");
+            var y = document.getElementById("hide");
+            var z = document.getElementById("hidden");
+
+            if(x.type === 'password') {
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none"
+            }
+            else{
+                 x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block"
+            }
+
+        }
+    </script>
+
+    <script>
+            var b = document.getElementById('load');
+           var a = document.getElementById('log');
+           var c = document.getElementById('but');
+      function load() {
+                 b.style.display = "block";
+               a.style.display = "none";
+                c.style.display = "block";
+               setTimeout(function() {
+                  
+           }, 4000);
+       }
+    </script>
+
+
+    <partial name="_ValidationScriptsPartial" />
+}
+
+</div>

@@ -1,0 +1,73 @@
+﻿@model ClinicalApp.Models.DoctorPrescription
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DoctorPrescription</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoctorFirstName" class="control-label"></label>
+                <input asp-for="DoctorFirstName" class="form-control" />
+                <span asp-validation-for="DoctorFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorLastName" class="control-label"></label>
+                <input asp-for="DoctorLastName" class="form-control" />
+                <span asp-validation-for="DoctorLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorEmail" class="control-label"></label>
+                <input asp-for="DoctorEmail" class="form-control" />
+                <span asp-validation-for="DoctorEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorAddress" class="control-label"></label>
+                <input asp-for="DoctorAddress" class="form-control" />
+                <span asp-validation-for="DoctorAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorPhoneNumber" class="control-label"></label>
+                <input asp-for="DoctorPhoneNumber" class="form-control" />
+                <span asp-validation-for="DoctorPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorDepartmetment" class="control-label"></label>
+                <input asp-for="DoctorDepartmetment" class="form-control" />
+                <span asp-validation-for="DoctorDepartmetment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientName" class="control-label"></label>
+                <input asp-for="PatientName" class="form-control" />
+                <span asp-validation-for="PatientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Frequency" class="control-label"></label>
+                <input asp-for="Frequency" class="form-control" />
+                <span asp-validation-for="Frequency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

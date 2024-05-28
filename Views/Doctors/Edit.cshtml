@@ -253,12 +253,6 @@
 .fw-semibold { font-weight: 600; }
 .lh-tight { line-height: 1.25; }
 
-img{
-    height: 125px;
-    width: 125px;
-    border-radius: 50px;
-}
-
 .grids{
     display: flex;
 }
@@ -410,13 +404,13 @@ img{
                                                     </div> 
                                                     <div class="form-group">
                                                         <b><label asp-for="Image" class="control-label"></label></b>
-                                                       <b> <input asp-for="Image" class="form-control text-danger" /></b>
+                                                       <input asp-for="Image" name="fileUpload" id="uploadFile" type="file" class="form-control" />
                                                         <span asp-validation-for="Image" class="text-danger"></span>
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="submit" onclick="Button()" value="Save" class="btn btn-primary" />
                                                     </div>
-                                               / </form>
+                                               </form>
                                             </div>
                                         </div>
                                     </div>

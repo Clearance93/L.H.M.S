@@ -80,6 +80,7 @@ builder.Services.AddScoped<IMaleWardRepository, MaleWardRepository>();
 builder.Services.AddScoped<IFemaleWardRepository, FemaleWardRepository>();
 builder.Services.AddScoped<IMetinityWardRepository, MetinityRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 
 
@@ -121,6 +122,7 @@ app.UseStaticFiles();
 
 
 app.UseRouting();
+SeedDataBase();
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -133,3 +135,14 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+void SeedDataBase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+
+        dbInitializer.Initializer();
+    }
+}

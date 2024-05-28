@@ -17,7 +17,7 @@ namespace ClinicalApp.Utility
             using (var emailClient = new SmtpClient())
             {
                   emailClient.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                emailClient.Authenticate("clearancemorumudi@gmail.com", "clearmorumudi");
+                emailClient.Authenticate("clearancemorumudi@gmail.com", "gepp ywko fved yixz");
                 emailClient.Send(emailToSend);
                 emailClient.Disconnect(true);
             }

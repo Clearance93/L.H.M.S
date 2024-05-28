@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ClinicalApp.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -177,6 +177,27 @@ namespace ClinicalApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Clearners", x => x.CleanerId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DoctorPrescriptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DoctorFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorDepartmetment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PatientName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Frequency = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorPrescriptions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -411,6 +432,23 @@ namespace ClinicalApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Meds",
+                columns: table => new
+                {
+                    MedicineId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NameOfMedication = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Discription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypOfMedication = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypeOfChronic = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meds", x => x.MedicineId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MetinityWards",
                 columns: table => new
                 {
@@ -495,6 +533,102 @@ namespace ClinicalApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Paramedics", x => x.ParamedicId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Patient_File",
+                columns: table => new
+                {
+                    PatientId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PatientFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PatientLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BirthId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HomeAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AdmitStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Sex = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Ethnicity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReasonForVisitation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DurationOfVisitation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ward_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfAdmition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AdmittedFor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfDischarge = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BenefitOfTreatment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RiskOfTreatment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartOfTreatment = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndOfTreatment = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TreeatmentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PatientStatus = table.Column<int>(type: "int", nullable: false),
+                    Infection = table.Column<int>(type: "int", nullable: false),
+                    Illness = table.Column<int>(type: "int", nullable: false),
+                    RecoveryChances = table.Column<int>(type: "int", nullable: false),
+                    RecommendedTreatment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SuucessOfRecoveryIftreatmentTaken = table.Column<int>(type: "int", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RealtionshipToThePatient = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CellNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    P_EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HomeNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WorkNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WorkEmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DoctorFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DoctorDepartmetment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SubscriberName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RelationShipToThePatient = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AmountOwe = table.Column<double>(type: "float", nullable: false),
+                    AmountPayed = table.Column<double>(type: "float", nullable: false),
+                    MethodOfPayement = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Smoking = table.Column<int>(type: "int", nullable: false),
+                    DrugUse_Abuse = table.Column<int>(type: "int", nullable: false),
+                    Excercise = table.Column<int>(type: "int", nullable: false),
+                    AlcoholIntake = table.Column<int>(type: "int", nullable: false),
+                    Diet = table.Column<int>(type: "int", nullable: false),
+                    PresentDiagnisis = table.Column<int>(type: "int", nullable: false),
+                    PastDiagnosis = table.Column<int>(type: "int", nullable: false),
+                    MedicalCare = table.Column<int>(type: "int", nullable: false),
+                    Treatment = table.Column<int>(type: "int", nullable: false),
+                    Allegies = table.Column<int>(type: "int", nullable: false),
+                    MedicationName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypeOfMedication = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Symptoms = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MedicationFor = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DurationOfMedication = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ChiefComplains = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HistoryOfIllenes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    VitalSigns = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhysicalExamination = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SurgicalHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ObstetricHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MedicalAllegies = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FamilyHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImmunizationHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DevelopmentHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CompanyAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CompanyContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManagerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ManagerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Occupation = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Patient_File", x => x.PatientId);
                 });
 
             migrationBuilder.CreateTable(
@@ -622,6 +756,35 @@ namespace ClinicalApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Porters", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UsersRole",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City_Town = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContractType = table.Column<int>(type: "int", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateStarted = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Department = table.Column<int>(type: "int", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Position = table.Column<int>(type: "int", nullable: false),
+                    StreetName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surbub = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UsersRole", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
@@ -928,6 +1091,30 @@ namespace ClinicalApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MedssToBeCollected",
+                columns: table => new
+                {
+                    MedicId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PatientId = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<double>(type: "float", nullable: false),
+                    PickUpTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MedsStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FullNames = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedssToBeCollected", x => x.MedicId);
+                    table.ForeignKey(
+                        name: "FK_MedssToBeCollected_Patients_PatientId",
+                        column: x => x.PatientId,
+                        principalTable: "Patients",
+                        principalColumn: "PatientId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PickUpMedications",
                 columns: table => new
                 {
@@ -1005,6 +1192,37 @@ namespace ClinicalApp.Migrations
                         column: x => x.PatientId,
                         principalTable: "Patients",
                         principalColumn: "PatientId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MedsCollectionDetails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MedicId = table.Column<int>(type: "int", nullable: false),
+                    CollectionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    MedicineId = table.Column<int>(type: "int", nullable: false),
+                    Count = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    FullNames = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContacNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedsCollectionDetails", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MedsCollectionDetails_Meds_MedicineId",
+                        column: x => x.MedicineId,
+                        principalTable: "Meds",
+                        principalColumn: "MedicineId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MedsCollectionDetails_MedssToBeCollected_MedicId",
+                        column: x => x.MedicId,
+                        principalTable: "MedssToBeCollected",
+                        principalColumn: "MedicId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -1101,6 +1319,21 @@ namespace ClinicalApp.Migrations
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_MedsCollectionDetails_MedicId",
+                table: "MedsCollectionDetails",
+                column: "MedicId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MedsCollectionDetails_MedicineId",
+                table: "MedsCollectionDetails",
+                column: "MedicineId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MedssToBeCollected_PatientId",
+                table: "MedssToBeCollected",
+                column: "PatientId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Patients_DoctorId",
                 table: "Patients",
                 column: "DoctorId");
@@ -1159,6 +1392,9 @@ namespace ClinicalApp.Migrations
                 name: "Clearners");
 
             migrationBuilder.DropTable(
+                name: "DoctorPrescriptions");
+
+            migrationBuilder.DropTable(
                 name: "FemaleWards");
 
             migrationBuilder.DropTable(
@@ -1195,6 +1431,9 @@ namespace ClinicalApp.Migrations
                 name: "Medications");
 
             migrationBuilder.DropTable(
+                name: "MedsCollectionDetails");
+
+            migrationBuilder.DropTable(
                 name: "MetinityWards");
 
             migrationBuilder.DropTable(
@@ -1202,6 +1441,9 @@ namespace ClinicalApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Paramedics");
+
+            migrationBuilder.DropTable(
+                name: "Patient_File");
 
             migrationBuilder.DropTable(
                 name: "Patient_In_Hospital");
@@ -1219,6 +1461,9 @@ namespace ClinicalApp.Migrations
                 name: "Treatments");
 
             migrationBuilder.DropTable(
+                name: "UsersRole");
+
+            migrationBuilder.DropTable(
                 name: "WorkInformations");
 
             migrationBuilder.DropTable(
@@ -1229,6 +1474,12 @@ namespace ClinicalApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "PickUpMedications");
+
+            migrationBuilder.DropTable(
+                name: "Meds");
+
+            migrationBuilder.DropTable(
+                name: "MedssToBeCollected");
 
             migrationBuilder.DropTable(
                 name: "Patients");

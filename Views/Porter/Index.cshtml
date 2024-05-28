@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ClinicalApp.Models.Porter>
 
     <style>
-        img{
+        .img{
             width: 125px;
             height: 95px;
         }
@@ -76,12 +76,6 @@
 
 .fw-semibold { font-weight: 600; }
 .lh-tight { line-height: 1.25; }
-
-img{
-    height: 125px;
-    width: 125px;
-    border-radius: 50px;
-}
 
 .grids{
     display: flex;
@@ -200,7 +194,7 @@ img{
                 @Html.DisplayFor(modelItem => item.Department)
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.Image)" />
+                <img class="img" src="@Html.DisplayFor(modelItem => item.Image)" />
             </td>
             <td>
                 <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@item.Id"><i class="bi bi-pen-fill"></i></a>

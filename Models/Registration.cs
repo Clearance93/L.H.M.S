@@ -27,6 +27,7 @@ namespace ClinicalApp.Models
         public string Surbub { get; set; }
         [Required, Display(Name ="City/Town")]
         public string City_Town { get; set; }
+
         [Required, Display(Name ="Zip Code")]
         public string ZipCode { get; set; }
         public string Country { get; set; }

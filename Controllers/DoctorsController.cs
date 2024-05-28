@@ -111,15 +111,43 @@ namespace ClinicalApp.Controllers
             {
                 return NotFound();
             }
+
+            var objFromDb = _context.Doctors.FirstOrDefault(d => d.DoctorId == id);
+
+            string webRootPath = _environment.WebRootPath;
+
+            var files = HttpContext.Request.Form.Files;
+
+            if (files.Count > 0)
+            {
+                string fileName = Guid.NewGuid().ToString();
+                var upload = Path.Combine(webRootPath, @"\Images\Doctors");
+                var extension = Path.GetExtension(files[0].FileName);
+
+                var oldImage = Path.Combine(webRootPath, objFromDb.Image);
+
+                if (System.IO.File.Exists(oldImage))
+                {
+                    System.IO.File.Delete(oldImage);
+                }
+
+                using (var fileStream = new FileStream(Path.Combine(upload, fileName + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(fileStream);
+                }
+            }
+            else
+            {
+                doctor.Image = objFromDb.Image;
+            }
+
             doctor = _doctor.Edit(doctor);
             //TempData["success"] = "Doctor was updated successfully";
             return RedirectToAction(nameof(Index));
-
-            return View(doctor);
         }
 
         // GET: Doctors/Delete/5
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete (int id)
         {
             if (id == null)
             {

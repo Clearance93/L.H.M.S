@@ -200,20 +200,6 @@ namespace ClinicalApp.Areas.Identity.Pages.Account
 
             var result = await _userManager.CreateAsync(user, Input.Password);
 
-                if(!await _roleManager.RoleExistsAsync(Workers.AdminRole))
-            {
-                await _roleManager.CreateAsync(new IdentityRole(Workers.AdminRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.ManagerRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.DoctorRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.ITRole));   
-                await _roleManager.CreateAsync(new IdentityRole(Workers.ParamedicRole));    
-                await _roleManager.CreateAsync(new IdentityRole(Workers.CleanerRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.FinanceRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.HRRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.NurseRole));
-                await _roleManager.CreateAsync(new IdentityRole(Workers.PorterRole));
-            }
-
                 if (result.Succeeded)
                 {
                 string role = Request.Form["rdUserRole"].ToString();
